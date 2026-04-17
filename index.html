@@ -10,112 +10,6 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Helvetica Neue',Arial,sans-serif;background:#0a0a0a;color:#fff}
-
-/* NAV */
-.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;background:#0a0a0a;border-bottom:1px solid #1a1a1a;position:sticky;top:0;z-index:100;transition:padding .3s}
-.nav.mini{padding:12px 32px}
-.nav-logo{font-size:18px;font-weight:700;letter-spacing:-.02em;color:#fff}
-.nav-logo span{color:#a78bfa}
-.nav-links{display:flex;gap:24px}
-.nav-links a{font-size:13px;color:#888;text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:#fff}
-
-/* HERO */
-.hero{min-height:420px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:#0a0a0a}
-.hero-bg{position:absolute;inset:-60px;transform:rotate(-10deg);display:flex;flex-direction:column;gap:8px;pointer-events:none;overflow:hidden}
-.hrow{display:flex;white-space:nowrap;font-size:48px;font-weight:800;line-height:1.1;opacity:.04}
-.hrow.l{animation:hl 16s linear infinite}
-.hrow.r{animation:hr 20s linear infinite}
-@keyframes hl{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@keyframes hr{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
-.hero-inner{position:relative;z-index:2;text-align:center;padding:3rem 2rem}
-.hero-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;padding:5px 14px;border-radius:99px;border:1px solid #2a2a2a;color:#888;margin-bottom:1.5rem;letter-spacing:.06em}
-.dot{width:6px;height:6px;border-radius:50%;background:#a78bfa;animation:pulse 1.8s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-.hero h1{font-size:48px;font-weight:800;line-height:1.1;margin-bottom:1rem;letter-spacing:-.03em}
-.hero h1 .c1{color:#a78bfa}
-.hero h1 .c2{color:#34d399}
-.hero h1 .c3{color:#fb923c}
-.hero-sub{font-size:15px;color:#666;line-height:1.7;max-width:400px;margin:0 auto 2rem}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-main{padding:12px 28px;border-radius:8px;background:#a78bfa;color:#fff;border:none;font-size:14px;font-weight:500;cursor:pointer;transition:opacity .2s}
-.btn-main:hover{opacity:.85}
-.btn-sub{padding:12px 28px;border-radius:8px;background:transparent;color:#fff;border:1px solid #2a2a2a;font-size:14px;cursor:pointer;transition:border-color .2s}
-.btn-sub:hover{border-color:#555}
-
-/* TICKER */
-.ticker-wrap{overflow:hidden;padding:10px 0;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
-.ticker{display:flex;white-space:nowrap;animation:hl 24s linear infinite}
-.ticker span{font-size:12px;color:#333;padding:0 2rem;letter-spacing:.05em}
-.ticker .sep{color:#a78bfa}
-
-/* ABOUT */
-.section{padding:4rem 2rem}
-.sec-eyebrow{font-size:11px;font-weight:500;letter-spacing:.1em;color:#a78bfa;margin-bottom:.75rem}
-.sec-heading{font-size:28px;font-weight:700;letter-spacing:-.02em;margin-bottom:1rem;color:#fff}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:720px;margin:0 auto}
-.about-text{font-size:14px;color:#666;line-height:1.8}
-.about-pills{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
-.pill{font-size:12px;padding:5px 14px;border-radius:99px;border:1px solid;font-weight:500}
-.pill.purple{border-color:#534AB7;color:#a78bfa;background:rgba(167,139,250,.08)}
-.pill.green{border-color:#0F6E56;color:#34d399;background:rgba(52,211,153,.08)}
-.pill.orange{border-color:#854F0B;color:#fb923c;background:rgba(251,146,60,.08)}
-.pill.pink{border-color:#72243E;color:#f472b6;background:rgba(244,114,182,.08)}
-
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:720px;margin:0 auto}
-.skill-card{background:#111;border:1px solid #1a1a1a;border-radius:12px;padding:1.25rem;transition:border-color .2s,transform .2s}
-.skill-card:hover{border-color:#2a2a2a;transform:translateY(-2px)}
-.skill-label{font-size:13px;font-weight:500;color:#fff;margin-bottom:8px;display:flex;justify-content:space-between}
-.skill-label span{font-size:11px;font-weight:400}
-.skill-bar{height:4px;background:#1a1a1a;border-radius:2px;overflow:hidden}
-.skill-fill{height:100%;border-radius:2px;width:0;transition:width 1.2s ease}
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
-.reveal.in{opacity:1;transform:translateY(0)}
-
-/* WORKS */
-.works-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:720px;margin:0 auto}
-.work-card{border-radius:12px;overflow:hidden;border:1px solid #1a1a1a;transition:transform .25s,border-color .2s;cursor:pointer}
-.work-card:hover{transform:translateY(-4px);border-color:#2a2a2a}
-.work-thumb{height:120px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;letter-spacing:-.04em}
-.work-thumb.t1{background:#1a0f2e;color:#a78bfa}
-.work-thumb.t2{background:#0a1f18;color:#34d399}
-.work-thumb.t3{background:#1f1008;color:#fb923c}
-.work-info{padding:1rem;background:#111}
-.work-info h3{font-size:14px;font-weight:500;color:#fff;margin-bottom:4px}
-.work-info p{font-size:12px;color:#555}
-.work-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
-.wtag{font-size:10px;padding:2px 8px;border-radius:99px;background:#1a1a1a;color:#666}
-
-/* CONTACT */
-.contact-wrap{max-width:480px;margin:0 auto;text-align:center}
-.contact-wrap p{font-size:14px;color:#666;line-height:1.7;margin-bottom:2rem}
-.contact-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.c-link{display:flex;align-items:center;gap:8px;font-size:13px;padding:10px 20px;border-radius:8px;border:1px solid #1a1a1a;color:#888;text-decoration:none;transition:all .2s;cursor:pointer;background:transparent}
-.c-link:hover{border-color:#333;color:#fff}
-.c-link svg{width:16px;height:16px;fill:currentColor}
-
-/* FOOTER */
-.footer{text-align:center;padding:2rem;border-top:1px solid #1a1a1a;font-size:12px;color:#333}
-
-/* MODAL */
-.modal-ov{display:none;min-height:400px;background:rgba(0,0,0,.8);align-items:center;justify-content:center;border-radius:12px;padding:1rem}
-.modal-ov.open{display:flex}
-.modal-box{background:#111;border:1px solid #222;border-radius:16px;padding:2rem;width:100%;max-width:400px}
-.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
-.modal-head h3{font-size:16px;font-weight:600;color:#fff}
-.modal-close{background:none;border:none;color:#555;font-size:20px;cursor:pointer}
-.modal-thumb{height:140px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:800;margin-bottom:1rem}
-.modal-desc{font-size:13px;color:#666;line-height:1.7;margin-bottom:1rem}
-.modal-stack{display:flex;gap:6px;flex-wrap:wrap}
-.mstag{font-size:11px;padding:3px 10px;border-radius:99px;background:#1a1a1a;color:#888}
-</style>
-
-<h2 class="sr-only">カラフルなポートフォリオサイトのプレビュー</h2>
-
 <div id="site">
   <nav class="nav" id="siteNav">
     <div class="nav-logo">port<span>.</span></div>
@@ -136,10 +30,12 @@ body{font-family:'Helvetica Neue',Arial,sans-serif;background:#0a0a0a;color:#fff
         <span class="c2">Build</span><br>
         <span class="c3">Ship.</span>
       </h1>
-      <p class="hero-sub">文系出身の独学エンジニア。セキュリティからフロントエンドまで幅広く動きます。</p>
+      <p class="hero-sub">文系出身の独学エンジニア。セキュリティからバックエンド・フロントエンドまで幅広くやっています。
+        Goが一番好きです。
+      </p>
       <div class="hero-btns">
-        <button class="btn-main" onclick="document.getElementById('works').scrollIntoView({behavior:'smooth'})">制作物を見る</button>
-        <button class="btn-sub" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">連絡する</button>
+      <button class="btn btn-primary btn-main" onclick="document.getElementById('works').scrollIntoView({behavior:'smooth'})"><i class="fas fa-briefcase me-2"></i>制作物を見る</button>
+      <button class="btn btn-outline-light btn-sub" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"><i class="fas fa-link me-2"></i>外部リンク</button>
       </div>
     </div>
   </section>
@@ -149,33 +45,33 @@ body{font-family:'Helvetica Neue',Arial,sans-serif;background:#0a0a0a;color:#fff
   </div>
 
   <section class="section container" id="about">
-    <div style="text-align:center;margin-bottom:2rem">
+    <div class="text-center mb-5">
       <div class="sec-eyebrow">— about me</div>
       <div class="sec-heading">自己紹介</div>
     </div>
     <div class="row">
       <div class="col-md-6">
         <div class="about-text">
-          文系・ビジネス系出身ながら独学でプログラミングを習得。情報安全確保支援士を取得し、セキュリティ・フロントエンド・MDMなど幅広い技術領域をカバーしています。ビジネス・技術・セキュリティの三つの視点から物事を考えることが強みです。
+          文系・ビジネス系出身ながら独学でプログラミングを習得。情報安全確保支援士を取得し、セキュリティ・フロントエンド・MDMなど幅広い技術領域をカバーしています。とにかく技術系のことが好きで、日々新しい知識を吸収中。今後の目標はITストラテジストやAWS資格の取得を目指します。
         </div>
       </div>
       <div class="col-md-6">
         <div class="about-pills">
           <span class="pill purple">セキュリティ</span>
-          <span class="pill green">フロントエンド</span>
-          <span class="pill orange">MDM / Intune</span>
+          <span class="pill green">バックエンド</span>
+          <span class="pill orange">MDM / Intune(概念・活用例の知識)</span>
           <span class="pill pink">Python</span>
-          <span class="pill purple">JavaScript</span>
-          <span class="pill green">ネットワーク</span>
+          <span class="pill purple">JavaScript/Typescript</span>
+          <span class="pill green">ネットワーク(基礎)</span>
           <span class="pill orange">情報安全確保支援士</span>
-          <span class="pill pink">独学エンジニア</span>
+          <span class="pill pink">Go</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section container" id="skills" style="background:#0d0d0d">
-    <div style="text-align:center;margin-bottom:2rem">
+  <section class="section container bg-dark text-light" id="skills">
+    <div class="text-center mb-5">
       <div class="sec-eyebrow">— skills</div>
       <div class="sec-heading">スキルセット</div>
     </div>
@@ -208,7 +104,7 @@ body{font-family:'Helvetica Neue',Arial,sans-serif;background:#0a0a0a;color:#fff
   </section>
 
   <section class="section container" id="works">
-    <div style="text-align:center;margin-bottom:2rem">
+    <div class="text-center mb-5">
       <div class="sec-eyebrow">— works</div>
       <div class="sec-heading">制作物</div>
     </div>
@@ -216,25 +112,25 @@ body{font-family:'Helvetica Neue',Arial,sans-serif;background:#0a0a0a;color:#fff
       <div class="work-card reveal" onclick="openWork(0)">
         <div class="work-thumb t1">SEC</div>
         <div class="work-info">
-          <h3>セキュリティ診断ツール</h3>
-          <p>Webアプリの脆弱性チェック</p>
-          <div class="work-tags"><span class="wtag">Python</span><span class="wtag">Security</span></div>
+          <h3>GROWTREE</h3>
+          <p>スキル診断・プログラミング学習支援ツール(バックエンド・認証部分を作成)</p>
+          <div class="work-tags"><span class="wtag">Python</span><span class="wtag">FastAPI</span><span class="wtag">React</span><span class="wtag">TypeScript</span><span class="wtag">Oauth2</span></div>
         </div>
       </div>
       <div class="work-card reveal" style="transition-delay:.1s" onclick="openWork(1)">
         <div class="work-thumb t2">LP</div>
         <div class="work-info">
-          <h3>LPテンプレート</h3>
-          <p>アニメーション付きランディングページ</p>
-          <div class="work-tags"><span class="wtag">HTML</span><span class="wtag">CSS</span><span class="wtag">JS</span></div>
+          <h3>HTML to EMOJI</h3>
+          <p>HTMLを絵文字に変換する拡張機能</p>
+          <div class="work-tags"><span class="wtag">Go</span><span class="wtag">JavaScript</span><span class="wtag">LLMstudio</span></div>
         </div>
       </div>
       <div class="work-card reveal" style="transition-delay:.2s" onclick="openWork(2)">
         <div class="work-thumb t3">MDM</div>
         <div class="work-info">
-          <h3>Intune 管理スクリプト</h3>
-          <p>デバイス管理の自動化</p>
-          <div class="work-tags"><span class="wtag">PowerShell</span><span class="wtag">Intune</span></div>
+          <h3>TODOテトリス</h3>
+          <p>Reactで作成したTODOアプリ</p>
+          <div class="work-tags"><span class="wtag">React</span><span class="wtag">TypeScript</span><span class="wtag">Vercel</span><span class="wtag">Go</span></div>
         </div>
       </div>
     </div>
@@ -242,8 +138,8 @@ body{font-family:'Helvetica Neue',Arial,sans-serif;background:#0a0a0a;color:#fff
 
   <section class="section container" id="contact">
     <div class="contact-wrap reveal">
-      <div class="sec-eyebrow" style="text-align:center">— contact</div>
-      <div class="sec-heading" style="text-align:center">連絡先</div>
+      <div class="sec-eyebrow text-center">— contact</div>
+      <div class="sec-heading text-center">連絡先</div>
       <p>お仕事のご依頼・ご相談はお気軽にどうぞ。<br>GitHub や Twitter でも繋がれます。</p>
       <div class="contact-links">
         <a class="c-link" href="#">
@@ -311,6 +207,5 @@ function openWork(i){
 function closeWork(){document.getElementById('wModal').classList.remove('open');}
 function closeWorkOut(e){if(e.target===document.getElementById('wModal'))closeWork();}
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
