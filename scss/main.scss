@@ -18,15 +18,15 @@ $quaternary-color: #f472b6;
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg:           #f5f5f5;
-    --bg-alt:       #ebebeb;
-    --bg-card:      #fff;
-    --border:       #e0e0e0;
-    --border-hover: #bbb;
+    --bg:           #f0f0f0;
+    --bg-alt:       #e6e6e6;
+    --bg-card:      #fafafa;
+    --border:       #c8c8c8;
+    --border-hover: #999;
     --text:         #111;
     --text-sub:     #444;
     --text-muted:   #777;
-    --nav-bg:       #fff;
+    --nav-bg:       #fafafa;
   }
 }
 
@@ -120,6 +120,10 @@ body {
 
     &.l { animation: hl 16s linear infinite; }
     &.r { animation: hr 20s linear infinite; }
+
+    @media (prefers-color-scheme: light) {
+      opacity: .07;
+    }
   }
 
   @keyframes hl {
