@@ -184,6 +184,12 @@ body {
       .c1 { color: $primary-color; }
       .c2 { color: $secondary-color; }
       .c3 { color: $tertiary-color; }
+
+      @media (prefers-color-scheme: light) {
+        .c1 { color: #7c3aed; }
+        .c2 { color: #059669; }
+        .c3 { color: #d97706; }
+      }
     }
 
     .hero-sub {

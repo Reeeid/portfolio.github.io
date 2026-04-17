@@ -194,6 +194,17 @@ body {
 .hero .hero-inner h1 .c3 {
   color: #fb923c;
 }
+@media (prefers-color-scheme: light) {
+  .hero .hero-inner h1 .c1 {
+    color: #7c3aed;
+  }
+  .hero .hero-inner h1 .c2 {
+    color: #059669;
+  }
+  .hero .hero-inner h1 .c3 {
+    color: #d97706;
+  }
+}
 .hero .hero-inner .hero-sub {
   font-size: 15px;
   color: var(--text-sub);
