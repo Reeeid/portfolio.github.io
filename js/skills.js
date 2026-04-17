@@ -4,9 +4,22 @@ export function initSkills() {
     e.forEach(x => {
       if (x.isIntersecting) {
         x.target.classList.add('in');
-        x.target.querySelectorAll('.skill-fill').forEach(f => {
-          f.style.width = f.dataset.w + '%';
-        });
+        const skillBar = x.target.querySelector('.skill-bar');
+        if (skillBar) {
+          const level = parseInt(skillBar.dataset.level);
+          const color = skillBar.dataset.color;
+          // Create 5 segments
+          skillBar.innerHTML = '';
+          for (let i = 1; i <= 5; i++) {
+            const segment = document.createElement('div');
+            segment.className = 'skill-segment';
+            if (i <= level) {
+              segment.classList.add('active');
+              segment.style.backgroundColor = color;
+            }
+            skillBar.appendChild(segment);
+          }
+        }
       }
     });
   }, { threshold: 0.15 });

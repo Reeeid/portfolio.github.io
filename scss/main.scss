@@ -295,16 +295,27 @@ body {
 
     .skill-bar {
       height: 4px;
-      background: $border-color;
-      border-radius: 2px;
-      overflow: hidden;
+      display: flex;
+      gap: 2px;
+      margin-bottom: 8px;
 
-      .skill-fill {
+      .skill-segment {
+        flex: 1;
         height: 100%;
+        background: rgba(255, 255, 255, 0.1);
         border-radius: 2px;
-        width: 0;
-        transition: width 1.2s ease;
+        transition: background-color 0.6s ease;
+
+        &.active {
+          background-color: inherit;
+        }
       }
+    }
+
+    .skill-desc {
+      font-size: 12px;
+      color: $text-muted;
+      line-height: 1.4;
     }
   }
 }
