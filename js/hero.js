@@ -14,7 +14,10 @@ export function initHeroBg() {
 
   const T = BGTEXT.repeat(4);
   const bg = document.getElementById('heroBg');
-  const colors = ['#a78bfa', '#34d399', '#fb923c', '#f472b6', '#60a5fa'];
+  const isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  const colors = isLight
+    ? ['#7c3aed', '#059669', '#d97706', '#db2777', '#2563eb']
+    : ['#a78bfa', '#34d399', '#fb923c', '#f472b6', '#60a5fa'];
 
   for (let i = 0; i < 9; i++) {
     const r = document.createElement('div');
