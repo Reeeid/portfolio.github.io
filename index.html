@@ -5,7 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - R3id</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- OGP -->
+  <meta property="og:title" content="Portfolio - R3id">
+  <meta property="og:description" content="文系出身の独学エンジニア。セキュリティ・バックエンド・フロントエンドまで幅広くやっています。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://reeeid.github.io/portfolio.github.io/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@R3ID_0107">
+  <meta name="twitter:title" content="Portfolio - R3id">
+  <meta name="twitter:description" content="文系出身の独学エンジニア。セキュリティ・バックエンド・フロントエンドまで幅広くやっています。">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="stylesheet" href="css/main.css">
@@ -38,43 +48,43 @@
         Goが一番好きです。
       </p>
       <div class="hero-btns">
-      <button class="btn btn-primary btn-main" onclick="document.getElementById('works').scrollIntoView({behavior:'smooth'})"><i class="fas fa-briefcase me-2"></i>制作物を見る</button>
-      <button class="btn btn-outline-light btn-sub" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"><i class="fas fa-link me-2"></i>外部リンク</button>
+        <button class="btn-main" id="btnWorks"><i class="fas fa-briefcase"></i>制作物を見る</button>
+        <button class="btn-sub" id="btnContact"><i class="fas fa-link"></i>外部リンク</button>
       </div>
     </div>
   </section>
 
-
-  <section class="section container" id="about">
-    <div class="text-center mb-5">
+  <section class="section section-alt" id="about">
+    <div class="sec-header">
       <div class="sec-eyebrow">— about me</div>
       <div class="sec-heading">自己紹介</div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="about-text">
-          文系・ビジネス系出身ながら独学でプログラミングを習得。基本・応用・情報安全確保支援士を取得し、セキュリティ・フロントエンド・MDMなど幅広い技術領域をカバーしています。とにかく技術系のことが好きで、日々新しい知識を吸収中。今後の目標はITストラテジストやAWS資格の取得を目指します！
-        </div>
+    <div class="about-grid">
+      <div class="about-text">
+        文系・ビジネス系出身ながら独学でプログラミングを習得。基本・応用・情報安全確保支援士を取得し、セキュリティ・フロントエンド・MDMなど幅広い技術領域をカバーしています。とにかく技術系のことが好きで、日々新しい知識を吸収中。今後の目標はITストラテジストやAWS資格の取得を目指します！
       </div>
-      <div class="col-md-6">
-        <div class="about-pills">
-          <span class="pill purple">セキュリティ</span>
-          <span class="pill green">バックエンド</span>
-          <span class="pill orange">MDM / Intune(概念・活用例の知識)</span>
-          <span class="pill pink">Python</span>
-          <span class="pill purple">JavaScript/Typescript</span>
-          <span class="pill green">ネットワーク(基礎)</span>
-          <span class="pill orange">情報安全確保支援士</span>
-          <span class="pill pink">Go</span>
-        </div>
+      <div class="about-pills">
+        <span class="pill purple">セキュリティ</span>
+        <span class="pill green">バックエンド</span>
+        <span class="pill purple">JavaScript/Typescript</span>
+        <span class="pill green">ネットワーク(基礎)</span>
+        <span class="pill orange">情報安全確保支援士</span>
+        <span class="pill pink">Go</span>
       </div>
     </div>
   </section>
 
-  <section class="section container bg-dark text-light" id="skills">
-    <div class="text-center mb-5">
+  <section class="section" id="skills">
+    <div class="sec-header">
       <div class="sec-eyebrow">— skills</div>
       <div class="sec-heading">スキルセット</div>
+    </div>
+    <div class="skill-legend">
+      <span>レベル：</span>
+      <span class="legend-item"><b>1</b> 知識あり</span>
+      <span class="legend-item"><b>2</b> 個人実装経験</span>
+      <span class="legend-item"><b>3</b> 実務・制作物で活用</span>
+      <span class="legend-item"><b>4</b> 深い理解・応用可能</span>
     </div>
     <div class="skills-grid" id="skillsEl">
       <div class="skill-card reveal">
@@ -155,50 +165,56 @@
     </div>
   </section>
 
-  <section class="section container" id="works">
-    <div class="text-center mb-5">
+  <section class="section section-alt" id="works">
+    <div class="sec-header">
       <div class="sec-eyebrow">— works</div>
       <div class="sec-heading">制作物</div>
     </div>
     <div class="works-grid">
-      <div class="work-card reveal">
+      <a class="work-card reveal" href="https://github.com/Reeeid" target="_blank" rel="noopener">
         <div class="work-thumb t1"><i class="fa-regular fa-tree"></i></div>
         <div class="work-info">
-          <h3>GROWTREE</h3>
-          <p>スキル診断・プログラミング学習支援ツール(バックエンド・認証部分を作成)</p>
+          <div>
+            <h3>GROWTREE</h3>
+            <p>スキル診断・プログラミング学習支援ツール(バックエンド・認証部分を作成)</p>
+          </div>
           <div class="work-tags"><span class="wtag">Python</span><span class="wtag">FastAPI</span><span class="wtag">React</span><span class="wtag">TypeScript</span><span class="wtag">Oauth2</span></div>
         </div>
-      </div>
-      <div class="work-card reveal" style="transition-delay:.1s">
+      </a>
+      <a class="work-card reveal" href="https://github.com/Reeeid" target="_blank" rel="noopener" style="transition-delay:.1s">
         <div class="work-thumb t2"><i class="fa-regular fa-face-grin-squint-tears"></i></div>
         <div class="work-info">
-          <h3>HTML to EMOJI</h3>
-          <p>HTMLを絵文字に変換する拡張機能</p>
+          <div>
+            <h3>HTML to EMOJI</h3>
+            <p>HTMLを絵文字に変換する拡張機能</p>
+          </div>
           <div class="work-tags"><span class="wtag">Go</span><span class="wtag">JavaScript</span><span class="wtag">LLMstudio</span></div>
         </div>
-      </div>
-      <div class="work-card reveal" style="transition-delay:.2s">
+      </a>
+      <a class="work-card reveal" href="https://github.com/Reeeid" target="_blank" rel="noopener" style="transition-delay:.2s">
         <div class="work-thumb t3"><i class="fa-regular fa-book"></i></div>
         <div class="work-info">
-          <h3>TODOテトリス</h3>
-          <p>Reactで作成したTODOアプリ</p>
+          <div>
+            <h3>TODOテトリス</h3>
+            <p>Reactで作成したTODOアプリ</p>
+          </div>
           <div class="work-tags"><span class="wtag">React</span><span class="wtag">TypeScript</span><span class="wtag">Vercel</span><span class="wtag">Go</span></div>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
-  <section class="section container" id="contact">
+  <section class="section" id="contact">
     <div class="contact-wrap reveal">
-      <div class="sec-eyebrow text-center">— contact</div>
-      <div class="sec-heading text-center">連絡先</div>
+      <div class="sec-eyebrow" style="text-align:center">— contact</div>
+      <div class="sec-heading" style="text-align:center">連絡先</div>
       <p>何かあればXにどうぞ。<br>よろしくね</p>
       <div class="contact-links">
-        <a class="c-link" href="https://github.com/Reeeid">
+        <a class="c-link" href="https://github.com/Reeeid" target="_blank" rel="noopener">
           <i class="fab fa-github"></i>
           GitHub
         </a>
-        <a class="c-link" href="https://x.com/R3ID_0107">
+        <a class="c-link" href="https://x.com/R3ID_0107" target="_blank" rel="noopener">
           <i class="fab fa-x-twitter"></i>
           X / Twitter
         </a>

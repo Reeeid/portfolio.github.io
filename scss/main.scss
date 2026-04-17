@@ -214,9 +214,28 @@ body {
 }
 
 
-/* ABOUT */
+/* SECTION */
 .section {
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+
+  &-alt {
+    max-width: 100%;
+    background: #0d0d0d;
+    padding: 5rem 2rem;
+
+    > * {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .sec-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
 
   .sec-eyebrow {
     font-size: 11px;
@@ -230,8 +249,41 @@ body {
     font-size: 28px;
     font-weight: 700;
     letter-spacing: -.02em;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     color: $text-light;
+  }
+}
+
+/* ABOUT */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* SKILL LEGEND */
+.skill-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: $text-muted;
+  margin-bottom: 1.5rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+
+  b {
+    color: $text-light;
+    margin-right: 3px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 2px;
   }
 }
 
@@ -358,6 +410,8 @@ body {
   .work-card {
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    color: inherit;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid $border-color;
@@ -694,8 +748,12 @@ body {
   }
 
   .about-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .section, .section-alt {
+    padding: 3rem 1.25rem;
   }
 
   .skills-grid {
