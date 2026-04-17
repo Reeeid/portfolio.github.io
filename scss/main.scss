@@ -18,15 +18,17 @@ $quaternary-color: #f472b6;
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg:           #f0f0f0;
-    --bg-alt:       #e6e6e6;
-    --bg-card:      #fafafa;
-    --border:       #c8c8c8;
-    --border-hover: #999;
+    --bg:           #f2f2f2;
+    --bg-alt:       #ffffff;
+    --bg-card:      #ffffff;
+    --border:       #bbb;
+    --border-hover: #888;
     --text:         #111;
     --text-sub:     #444;
     --text-muted:   #777;
-    --nav-bg:       #fafafa;
+    --nav-bg:       #ffffff;
+    --section-divider: #ddd;
+    --card-shadow:  0 1px 4px rgba(0,0,0,.1);
   }
 }
 
@@ -122,7 +124,7 @@ body {
     &.r { animation: hr 20s linear infinite; }
 
     @media (prefers-color-scheme: light) {
-      opacity: .07;
+      opacity: .15;
     }
   }
 
@@ -233,6 +235,7 @@ body {
 /* SECTION */
 .section {
   padding: 5rem 2rem;
+  border-top: 1px solid transparent;
 
   > * {
     max-width: 800px;
@@ -242,6 +245,10 @@ body {
 
   &-alt {
     background: var(--bg-alt);
+  }
+
+  @media (prefers-color-scheme: light) {
+    border-top-color: var(--section-divider);
   }
 
   .sec-header {
@@ -347,6 +354,7 @@ body {
     border-radius: 12px;
     padding: 1.25rem;
     transition: border-color .2s, transform .2s;
+    box-shadow: var(--card-shadow, none);
 
     &:hover {
       border-color: var(--border-hover);
@@ -420,6 +428,7 @@ body {
     border: 1px solid var(--border);
     transition: transform .25s, border-color .2s;
     cursor: pointer;
+    box-shadow: var(--card-shadow, none);
 
     &:hover {
       transform: translateY(-4px);
