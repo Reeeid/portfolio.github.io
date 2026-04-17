@@ -15,15 +15,13 @@ export function initHeroBg() {
   const T = BGTEXT.repeat(4);
   const bg = document.getElementById('heroBg');
   const isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-  const colors = isLight
-    ? ['#7c3aed', '#059669', '#d97706', '#db2777', '#2563eb']
-    : ['#a78bfa', '#34d399', '#fb923c', '#f472b6', '#60a5fa'];
+  const color = isLight ? '#000' : '#fff';
 
   for (let i = 0; i < 9; i++) {
     const r = document.createElement('div');
     r.className = 'hrow ' + (i % 2 === 0 ? 'l' : 'r');
     r.textContent = T;
-    r.style.color = colors[i % 5];
+    r.style.color = color;
     bg.appendChild(r);
   }
 }
