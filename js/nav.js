@@ -2,8 +2,7 @@ export function initNav() {
   const nav = document.getElementById('siteNav');
   const hamburger = document.getElementById('navHamburger');
   const navLinks = document.getElementById('navLinks');
-
-  document.getElementById('btnWorks')?.addEventListener('click', () => {
+document.getElementById('btnWorks')?.addEventListener('click', () => {
     document.getElementById('works').scrollIntoView({ behavior: 'smooth' });
   });
   document.getElementById('btnContact')?.addEventListener('click', () => {
