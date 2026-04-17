@@ -91,7 +91,12 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: var(--bg);
+  background: linear-gradient(180deg, #1a0f2e 0%, #0a0a0a 100%);
+}
+@media (prefers-color-scheme: light) {
+  .hero {
+    background: linear-gradient(180deg, #ede9fe 0%, #f2f2f2 100%);
+  }
 }
 .hero .hero-bg {
   position: absolute;
