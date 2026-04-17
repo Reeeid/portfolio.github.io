@@ -109,7 +109,7 @@
       <div class="sec-heading">制作物</div>
     </div>
     <div class="works-grid">
-      <div class="work-card reveal" onclick="openWork(0)">
+      <div class="work-card reveal">
         <div class="work-thumb t1">SEC</div>
         <div class="work-info">
           <h3>GROWTREE</h3>
@@ -117,7 +117,7 @@
           <div class="work-tags"><span class="wtag">Python</span><span class="wtag">FastAPI</span><span class="wtag">React</span><span class="wtag">TypeScript</span><span class="wtag">Oauth2</span></div>
         </div>
       </div>
-      <div class="work-card reveal" style="transition-delay:.1s" onclick="openWork(1)">
+      <div class="work-card reveal" style="transition-delay:.1s">
         <div class="work-thumb t2">LP</div>
         <div class="work-info">
           <h3>HTML to EMOJI</h3>
@@ -125,7 +125,7 @@
           <div class="work-tags"><span class="wtag">Go</span><span class="wtag">JavaScript</span><span class="wtag">LLMstudio</span></div>
         </div>
       </div>
-      <div class="work-card reveal" style="transition-delay:.2s" onclick="openWork(2)">
+      <div class="work-card reveal" style="transition-delay:.2s">
         <div class="work-thumb t3">MDM</div>
         <div class="work-info">
           <h3>TODOテトリス</h3>
@@ -159,18 +159,6 @@
   </section>
 
   <footer class="footer">© 2025 port. — built with HTML / CSS / JS</footer>
-
-  <div class="modal-ov" id="wModal" onclick="closeWorkOut(event)">
-    <div class="modal-box">
-      <div class="modal-head">
-        <h3 id="wTitle"></h3>
-        <button class="modal-close" onclick="closeWork()">×</button>
-      </div>
-      <div class="modal-thumb" id="wThumb"></div>
-      <p class="modal-desc" id="wDesc"></p>
-      <div class="modal-stack" id="wStack"></div>
-    </div>
-  </div>
 </div>
 
 <script type="module" src="js/main.js"></script>
