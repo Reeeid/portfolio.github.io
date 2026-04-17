@@ -198,18 +198,14 @@ body {
 /* SECTION */
 .section {
   padding: 5rem 2rem;
-  max-width: 800px;
-  margin: 0 auto;
 }
-.section-alt {
-  max-width: 100%;
-  background: #0d0d0d;
-  padding: 5rem 2rem;
-}
-.section-alt > * {
+.section > * {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+}
+.section-alt {
+  background: #141414;
 }
 .section .sec-header {
   text-align: center;
@@ -372,8 +368,6 @@ body {
 .works-grid .work-card {
   display: flex;
   flex-direction: column;
-  text-decoration: none;
-  color: inherit;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid #1a1a1a;
@@ -421,6 +415,19 @@ body {
 .works-grid .work-card .work-info p {
   font-size: 12px;
   color: #555;
+}
+.works-grid .work-card .work-info .work-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  font-size: 11px;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.works-grid .work-card .work-info .work-link:hover {
+  color: #fff;
 }
 .works-grid .work-card .work-info .work-tags {
   display: flex;
@@ -684,7 +691,7 @@ body {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  .section, .section-alt {
+  .section {
     padding: 3rem 1.25rem;
   }
   .skills-grid {
