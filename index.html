@@ -1,5 +1,15 @@
 
-<style>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Takumi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Helvetica Neue',Arial,sans-serif;background:#0a0a0a;color:#fff}
@@ -138,29 +148,33 @@ body{font-family:'Helvetica Neue',Arial,sans-serif;background:#0a0a0a;color:#fff
     <div class="ticker" id="tickerEl"></div>
   </div>
 
-  <section class="section" id="about">
+  <section class="section container" id="about">
     <div style="text-align:center;margin-bottom:2rem">
       <div class="sec-eyebrow">— about me</div>
       <div class="sec-heading">自己紹介</div>
     </div>
-    <div class="about-grid reveal">
-      <div class="about-text">
-        文系・ビジネス系出身ながら独学でプログラミングを習得。情報安全確保支援士を取得し、セキュリティ・フロントエンド・MDMなど幅広い技術領域をカバーしています。ビジネス・技術・セキュリティの三つの視点から物事を考えることが強みです。
+    <div class="row">
+      <div class="col-md-6">
+        <div class="about-text">
+          文系・ビジネス系出身ながら独学でプログラミングを習得。情報安全確保支援士を取得し、セキュリティ・フロントエンド・MDMなど幅広い技術領域をカバーしています。ビジネス・技術・セキュリティの三つの視点から物事を考えることが強みです。
+        </div>
       </div>
-      <div class="about-pills">
-        <span class="pill purple">セキュリティ</span>
-        <span class="pill green">フロントエンド</span>
-        <span class="pill orange">MDM / Intune</span>
-        <span class="pill pink">Python</span>
-        <span class="pill purple">JavaScript</span>
-        <span class="pill green">ネットワーク</span>
-        <span class="pill orange">情報安全確保支援士</span>
-        <span class="pill pink">独学エンジニア</span>
+      <div class="col-md-6">
+        <div class="about-pills">
+          <span class="pill purple">セキュリティ</span>
+          <span class="pill green">フロントエンド</span>
+          <span class="pill orange">MDM / Intune</span>
+          <span class="pill pink">Python</span>
+          <span class="pill purple">JavaScript</span>
+          <span class="pill green">ネットワーク</span>
+          <span class="pill orange">情報安全確保支援士</span>
+          <span class="pill pink">独学エンジニア</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="skills" style="background:#0d0d0d">
+  <section class="section container" id="skills" style="background:#0d0d0d">
     <div style="text-align:center;margin-bottom:2rem">
       <div class="sec-eyebrow">— skills</div>
       <div class="sec-heading">スキルセット</div>
@@ -193,7 +207,7 @@ body{font-family:'Helvetica Neue',Arial,sans-serif;background:#0a0a0a;color:#fff
     </div>
   </section>
 
-  <section class="section" id="works">
+  <section class="section container" id="works">
     <div style="text-align:center;margin-bottom:2rem">
       <div class="sec-eyebrow">— works</div>
       <div class="sec-heading">制作物</div>
@@ -226,22 +240,22 @@ body{font-family:'Helvetica Neue',Arial,sans-serif;background:#0a0a0a;color:#fff
     </div>
   </section>
 
-  <section class="section" id="contact">
+  <section class="section container" id="contact">
     <div class="contact-wrap reveal">
       <div class="sec-eyebrow" style="text-align:center">— contact</div>
       <div class="sec-heading" style="text-align:center">連絡先</div>
       <p>お仕事のご依頼・ご相談はお気軽にどうぞ。<br>GitHub や Twitter でも繋がれます。</p>
       <div class="contact-links">
         <a class="c-link" href="#">
-          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 24 12C24 5.37 18.63 0 12 0z"/></svg>
+          <i class="fab fa-github"></i>
           GitHub
         </a>
         <a class="c-link" href="#">
-          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <i class="fab fa-twitter"></i>
           X / Twitter
         </a>
         <a class="c-link" href="#">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <i class="fas fa-envelope"></i>
           メール
         </a>
       </div>
@@ -297,3 +311,6 @@ function openWork(i){
 function closeWork(){document.getElementById('wModal').classList.remove('open');}
 function closeWorkOut(e){if(e.target===document.getElementById('wModal'))closeWork();}
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

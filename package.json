@@ -1,0 +1,14 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website for GitHub Pages",
+  "scripts": {
+    "sass": "sass --watch scss/main.scss css/main.css"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5"
+  },
+  "dependencies": {
+    "developer-icons": "^6.0.5"
+  }
+}
