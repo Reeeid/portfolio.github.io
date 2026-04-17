@@ -28,24 +28,14 @@ jobs:
       - name: Build SCSS to CSS
         run: npx sass scss/main.scss css/main.css
 
-      - name: Prepare deploy folder
-        run: |
-          rm -rf public
-          mkdir -p public
-          cp index.html public/
-          cp -R css public/
-          cp -R assets public/
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
-      - name: Configure git
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './'
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: gh-pages
-        env:
-          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+        id: deployment
+        uses: actions/deploy-pages@v4
