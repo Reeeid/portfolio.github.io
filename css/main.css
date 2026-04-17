@@ -235,60 +235,6 @@ body {
   margin-bottom: 1rem;
   color: #fff;
 }
-.section {
-  /* .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    max-width: 720px;
-    margin: 0 auto;
-
-    .about-text {
-      font-size: 14px;
-      color: $text-muted;
-      line-height: 1.8;
-    }
-
-    .about-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-content: flex-start;
-
-      .pill {
-        font-size: 12px;
-        padding: 5px 14px;
-        border-radius: 99px;
-        border: 1px solid;
-        font-weight: 500;
-
-        &.purple {
-          border-color: #534AB7;
-          color: $primary-color;
-          background: rgba(167, 139, 250, .08);
-        }
-
-        &.green {
-          border-color: #0F6E56;
-          color: $secondary-color;
-          background: rgba(52, 211, 153, .08);
-        }
-
-        &.orange {
-          border-color: #854F0B;
-          color: $tertiary-color;
-          background: rgba(251, 146, 60, .08);
-        }
-
-        &.pink {
-          border-color: #72243E;
-          color: $quaternary-color;
-          background: rgba(244, 114, 182, .08);
-        }
-      }
-    }
-  } */
-}
 
 /* SKILLS */
 .skills-grid {
