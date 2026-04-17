@@ -4,21 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Takumi</title>
+  <title>Portfolio - R3id</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <div id="site">
   <nav class="nav" id="siteNav">
-    <div class="nav-logo">port<span>.</span></div>
-    <div class="nav-links">
+    <div class="nav-logo">ぽーとふぉりお<span>.</span></div>
+    <div class="nav-links" id="navLinks">
       <a href="#about">about</a>
       <a href="#skills">skills</a>
       <a href="#works">works</a>
       <a href="#contact">contact</a>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <section class="hero" id="hero">
@@ -26,9 +30,9 @@
     <div class="hero-inner">
       <div class="hero-tag"><span class="dot"></span>available for work</div>
       <h1>
-        <span class="c1">Design</span><br>
-        <span class="c2">Build</span><br>
-        <span class="c3">Ship.</span>
+        <span class="c1">Business</span><br>
+        <span class="c2">Security</span><br>
+        <span class="c3">Technology</span>
       </h1>
       <p class="hero-sub">文系出身の独学エンジニア。セキュリティからバックエンド・フロントエンドまで幅広くやっています。
         Goが一番好きです。
@@ -40,9 +44,6 @@
     </div>
   </section>
 
-  <div class="ticker-wrap">
-    <div class="ticker" id="tickerEl"></div>
-  </div>
 
   <section class="section container" id="about">
     <div class="text-center mb-5">
@@ -52,7 +53,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="about-text">
-          文系・ビジネス系出身ながら独学でプログラミングを習得。情報安全確保支援士を取得し、セキュリティ・フロントエンド・MDMなど幅広い技術領域をカバーしています。とにかく技術系のことが好きで、日々新しい知識を吸収中。今後の目標はITストラテジストやAWS資格の取得を目指します。
+          文系・ビジネス系出身ながら独学でプログラミングを習得。基本・応用・情報安全確保支援士を取得し、セキュリティ・フロントエンド・MDMなど幅広い技術領域をカバーしています。とにかく技術系のことが好きで、日々新しい知識を吸収中。今後の目標はITストラテジストやAWS資格の取得を目指します！
         </div>
       </div>
       <div class="col-md-6">
@@ -82,22 +83,22 @@
         <div class="skill-desc">情報安全確保支援士に合格しました。セキュリティに関しては知識があります。</div>
       </div>
       <div class="skill-card reveal" style="transition-delay:.1s">
-        <div class="skill-label">TypeScript<span style="color:#34d399">3</span></div>
+        <div class="skill-label"><i class="devicon-typescript-plain colored"></i>TypeScript<span style="color:#34d399">3</span></div>
         <div class="skill-bar" data-level="3" data-color="#34d399"></div>
-        <div class="skill-desc">フロントエンド開発でReactやVanilla JSを使用。インタラクティブなUIを作成します。</div>
+        <div class="skill-desc">型安全という観点において、すごく好ましい言語です！！！</div>
       </div>
       <div class="skill-card reveal" style="transition-delay:.2s">
-        <div class="skill-label">Go<span style="color:#78a829">3</span></div>
+        <div class="skill-label"><i class="devicon-go-plain colored"></i>Go<span style="color:#78a829">3</span></div>
         <div class="skill-bar" data-level="3" data-color="#78a829"></div>
-        <div class="skill-desc">Go言語を用いたバックエンド開発に携わっています。特にWebアプリケーションの開発に興味があり、ソフトウェアルーターの実装等、個人プロジェクトで活用しています。</div>
+        <div class="skill-desc">すき。特にWebアプリケーションの開発に興味があり、ソフトウェアルーターの実装等、個人プロジェクトで活用しています。</div>
       </div>
       <div class="skill-card reveal" style="transition-delay:.15s">
-        <div class="skill-label">HTML / CSS<span style="color:#fb923c">3</span></div>
+        <div class="skill-label"><i class="devicon-html5-plain colored"></i><i class="devicon-css3-plain colored"></i>HTML / CSS<span style="color:#fb923c">3</span></div>
         <div class="skill-bar" data-level="3" data-color="#fb923c"></div>
         <div class="skill-desc">業務でも使用しています。基本的にはフレームワークを使用します。</div>
       </div>
       <div class="skill-card reveal" style="transition-delay:.2s">
-        <div class="skill-label">Python<span style="color:#f472b6">3</span></div>
+        <div class="skill-label"><i class="devicon-python-plain colored"></i>Python<span style="color:#f472b6">3</span></div>
         <div class="skill-bar" data-level="3" data-color="#f472b6"></div>
         <div class="skill-desc">バックエンド開発やデータ処理に使用。FastAPIでのAPI開発経験があります。</div>
       </div>
@@ -110,6 +111,46 @@
         <div class="skill-label">ネットワーク<span style="color:#a78bfa">2</span></div>
         <div class="skill-bar" data-level="2" data-color="#a78bfa"></div>
         <div class="skill-desc">ネットワーク基礎知識はあり、ソフトウェアルーターの開発について一定の経験があります。（TCP/IP/ARP/ICMP）</div>
+      </div>
+      <div class="skill-card reveal" style="transition-delay:.35s">
+        <div class="skill-label"><i class="devicon-cplusplus-plain colored"></i>C++<span style="color:#254b84">2</span></div>
+        <div class="skill-bar" data-level="2" data-color="#254b84"></div>
+        <div class="skill-desc">組み込み系で使用、仕事の依頼で音声出力・制御のプログラムを作った程度</div>
+      </div>
+      <div class="skill-card reveal" style="transition-delay:.4s">
+        <div class="skill-label"><i class="devicon-csharp-plain colored"></i>C#<span style="color:#68217a">2</span></div>
+        <div class="skill-bar" data-level="2" data-color="#68217a"></div>
+        <div class="skill-desc">Unityで使っています。</div>
+      </div>
+      <div class="skill-card reveal" style="transition-delay:.45s">
+        <div class="skill-label"><i class="devicon-java-plain colored"></i>Java<span style="color:#5382a1">1</span></div>
+        <div class="skill-bar" data-level="1" data-color="#5382a1"></div>
+        <div class="skill-desc">Javaは構文と概念はわかるくらい。いろいろな本でコード例で出ることが多く、本で見る機会が多いです</div>
+      </div>
+      <div class="skill-card reveal" style="transition-delay:.5s">
+        <div class="skill-label"><i class="devicon-php-plain colored"></i>PHP<span style="color:#777bb4">4</span></div>
+        <div class="skill-bar" data-level="4" data-color="#777bb4"></div>
+        <div class="skill-desc">インターンでSymfonyを使用したWebアプリ開発経験があります。Laravelなどにも対応できます。</div>
+      </div>
+      <div class="skill-card reveal" style="transition-delay:.55s">
+        <div class="skill-label"><i class="fas fa-sitemap"></i>アプリケーションアーキテクチャ<span style="color:#fbbf24">3</span></div>
+        <div class="skill-bar" data-level="3" data-color="#fbbf24"></div>
+        <div class="skill-desc">ほとんど独学ですが、クリーン・オニオンアーキテクチャの概念を理解し、実装に活用できます。</div>
+      </div>
+      <div class="skill-card reveal" style="transition-delay:.6s">
+        <div class="skill-label"><i class="devicon-react-original colored"></i>React<span style="color:#61dafb">4</span></div>
+        <div class="skill-bar" data-level="4" data-color="#61dafb"></div>
+        <div class="skill-desc">独学でやったり学習サイトで触ったり</div>
+      </div>
+      <div class="skill-card reveal" style="transition-delay:.7s">
+        <div class="skill-label"><i class="devicon-docker-plain colored"></i>Docker<span style="color:#2496ed">2</span></div>
+        <div class="skill-bar" data-level="2" data-color="#2496ed"></div>
+        <div class="skill-desc">開発コンテナの利用経験があります。Docker Composeで簡単な環境を構築できます。</div>
+      </div>
+      <div class="skill-card reveal" style="transition-delay:.75s">
+        <div class="skill-label"><i class="fas fa-ellipsis-h"></i>その他<span style="color:#94a3b8">3</span></div>
+        <div class="skill-bar" data-level="3" data-color="#94a3b8"></div>
+        <div class="skill-desc">Gitはもちろん、色々な分野に手を出しています。</div>
       </div>
     </div>
   </section>
@@ -151,19 +192,15 @@
     <div class="contact-wrap reveal">
       <div class="sec-eyebrow text-center">— contact</div>
       <div class="sec-heading text-center">連絡先</div>
-      <p>お仕事のご依頼・ご相談はお気軽にどうぞ。<br>GitHub や Twitter でも繋がれます。</p>
+      <p>何かあればXにどうぞ。<br>よろしくね</p>
       <div class="contact-links">
-        <a class="c-link" href="#">
+        <a class="c-link" href="https://github.com/Reeeid">
           <i class="fab fa-github"></i>
           GitHub
         </a>
-        <a class="c-link" href="#">
+        <a class="c-link" href="https://x.com/R3ID_0107">
           <i class="fab fa-x-twitter"></i>
           X / Twitter
-        </a>
-        <a class="c-link" href="#">
-          <i class="fas fa-envelope"></i>
-          メール
         </a>
       </div>
     </div>

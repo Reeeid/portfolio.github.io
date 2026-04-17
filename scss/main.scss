@@ -213,30 +213,6 @@ body {
   }
 }
 
-/* TICKER */
-.ticker-wrap {
-  overflow: hidden;
-  padding: 10px 0;
-  border-top: 1px solid $border-color;
-  border-bottom: 1px solid $border-color;
-
-  .ticker {
-    display: flex;
-    white-space: nowrap;
-    animation: hl 24s linear infinite;
-
-    span {
-      font-size: 12px;
-      color: $text-dark;
-      padding: 0 2rem;
-      letter-spacing: .05em;
-    }
-
-    .sep {
-      color: $primary-color;
-    }
-  }
-}
 
 /* ABOUT */
 .section {
@@ -285,7 +261,14 @@ body {
       color: $text-light;
       margin-bottom: 8px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
+      gap: 8px;
+
+      i {
+        font-size: 16px;
+        line-height: 1;
+      }
 
       span {
         font-size: 11px;
@@ -320,6 +303,38 @@ body {
   }
 }
 
+.bg-secondary-section {
+  background: #090909;
+}
+
+.advice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.advice-card {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: 12px;
+  padding: 1.5rem;
+  min-height: 160px;
+
+  h3 {
+    font-size: 14px;
+    margin-bottom: 0.75rem;
+    color: $text-light;
+  }
+
+  p {
+    font-size: 13px;
+    color: $text-muted;
+    line-height: 1.6;
+  }
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -338,8 +353,11 @@ body {
   gap: 16px;
   max-width: 720px;
   margin: 0 auto;
+  align-items: start;
 
   .work-card {
+    display: flex;
+    flex-direction: column;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid $border-color;
@@ -377,6 +395,9 @@ body {
     }
 
     .work-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       padding: 1rem;
       background: $bg-card;
 
@@ -543,22 +564,103 @@ body {
   }
 }
 
+/* ABOUT PILLS */
+.about-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .pill {
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 99px;
+    border: 1px solid $border-color;
+    color: #aaa;
+
+    &.purple { border-color: rgba($primary-color, .4); color: $primary-color; }
+    &.green   { border-color: rgba($secondary-color, .4); color: $secondary-color; }
+    &.orange  { border-color: rgba($tertiary-color, .4); color: $tertiary-color; }
+    &.pink    { border-color: rgba($quaternary-color, .4); color: $quaternary-color; }
+  }
+}
+
+.about-text {
+  font-size: 14px;
+  color: $text-muted;
+  line-height: 1.8;
+}
+
+/* NAV HAMBURGER */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+
+  span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #888;
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s;
+  }
+
+  &.open {
+    span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .skills-grid {
+    max-width: 100%;
+  }
+
+  .works-grid {
+    max-width: 100%;
+  }
+
+  .advice-grid {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .nav {
     padding: 15px 20px;
+    flex-wrap: wrap;
 
     &.mini {
       padding: 10px 20px;
     }
 
     .nav-links {
-      gap: 16px;
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      gap: 0;
+      padding: 8px 0;
+
+      &.open {
+        display: flex;
+      }
 
       a {
-        font-size: 12px;
+        font-size: 14px;
+        padding: 10px 0;
+        border-top: 1px solid $border-color;
       }
     }
+  }
+
+  .nav-hamburger {
+    display: flex;
   }
 
   .hero {
@@ -617,5 +719,22 @@ body {
   .modal-box {
     padding: 1.5rem;
     max-width: 350px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero .hero-inner h1 {
+    font-size: 28px;
+  }
+
+  .hero .hero-inner .hero-btns {
+    .btn-main, .btn-sub {
+      width: 100%;
+      max-width: 260px;
+    }
+  }
+
+  .nav-logo {
+    font-size: 15px;
   }
 }

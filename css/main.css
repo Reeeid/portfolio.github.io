@@ -195,28 +195,6 @@ body {
   border-color: #555;
 }
 
-/* TICKER */
-.ticker-wrap {
-  overflow: hidden;
-  padding: 10px 0;
-  border-top: 1px solid #1a1a1a;
-  border-bottom: 1px solid #1a1a1a;
-}
-.ticker-wrap .ticker {
-  display: flex;
-  white-space: nowrap;
-  animation: hl 24s linear infinite;
-}
-.ticker-wrap .ticker span {
-  font-size: 12px;
-  color: #333;
-  padding: 0 2rem;
-  letter-spacing: 0.05em;
-}
-.ticker-wrap .ticker .sep {
-  color: #a78bfa;
-}
-
 /* ABOUT */
 .section {
   padding: 4rem 2rem;
@@ -261,7 +239,13 @@ body {
   color: #fff;
   margin-bottom: 8px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 8px;
+}
+.skills-grid .skill-card .skill-label i {
+  font-size: 16px;
+  line-height: 1;
 }
 .skills-grid .skill-card .skill-label span {
   font-size: 11px;
@@ -289,6 +273,36 @@ body {
   line-height: 1.4;
 }
 
+.bg-secondary-section {
+  background: #090909;
+}
+
+.advice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.advice-card {
+  background: #111;
+  border: 1px solid #1a1a1a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  min-height: 160px;
+}
+.advice-card h3 {
+  font-size: 14px;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+.advice-card p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -306,8 +320,11 @@ body {
   gap: 16px;
   max-width: 720px;
   margin: 0 auto;
+  align-items: start;
 }
 .works-grid .work-card {
+  display: flex;
+  flex-direction: column;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid #1a1a1a;
@@ -340,6 +357,9 @@ body {
   color: #fb923c;
 }
 .works-grid .work-card .work-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 1rem;
   background: #111;
 }
@@ -486,19 +506,107 @@ body {
   color: #888;
 }
 
+/* ABOUT PILLS */
+.about-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.about-pills .pill {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 99px;
+  border: 1px solid #1a1a1a;
+  color: #aaa;
+}
+.about-pills .pill.purple {
+  border-color: rgba(167, 139, 250, 0.4);
+  color: #a78bfa;
+}
+.about-pills .pill.green {
+  border-color: rgba(52, 211, 153, 0.4);
+  color: #34d399;
+}
+.about-pills .pill.orange {
+  border-color: rgba(251, 146, 60, 0.4);
+  color: #fb923c;
+}
+.about-pills .pill.pink {
+  border-color: rgba(244, 114, 182, 0.4);
+  color: #f472b6;
+}
+
+.about-text {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* NAV HAMBURGER */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #888;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .skills-grid {
+    max-width: 100%;
+  }
+  .works-grid {
+    max-width: 100%;
+  }
+  .advice-grid {
+    max-width: 100%;
+  }
+}
 @media (max-width: 768px) {
   .nav {
     padding: 15px 20px;
+    flex-wrap: wrap;
   }
   .nav.mini {
     padding: 10px 20px;
   }
   .nav .nav-links {
-    gap: 16px;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0;
+  }
+  .nav .nav-links.open {
+    display: flex;
   }
   .nav .nav-links a {
-    font-size: 12px;
+    font-size: 14px;
+    padding: 10px 0;
+    border-top: 1px solid #1a1a1a;
+  }
+  .nav-hamburger {
+    display: flex;
   }
   .hero {
     min-height: 350px;
@@ -546,5 +654,15 @@ body {
     max-width: 350px;
   }
 }
-
-/*# sourceMappingURL=main.css.map */
+@media (max-width: 400px) {
+  .hero .hero-inner h1 {
+    font-size: 28px;
+  }
+  .hero .hero-inner .hero-btns .btn-main, .hero .hero-inner .hero-btns .btn-sub {
+    width: 100%;
+    max-width: 260px;
+  }
+  .nav-logo {
+    font-size: 15px;
+  }
+}
