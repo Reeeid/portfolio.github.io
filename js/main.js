@@ -5,7 +5,7 @@ import { initNav } from './nav.js';
 
 // Initialize all modules
 document.addEventListener('DOMContentLoaded', () => {
-  initHeroBg();
   initSkills();
+  initHeroBg();
   initNav();
 });
