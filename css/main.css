@@ -95,7 +95,7 @@ body {
 }
 @media (prefers-color-scheme: light) {
   .hero {
-    background: linear-gradient(180deg, #ede9fe 0%, #f2f2f2 100%);
+    background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
   }
 }
 .hero .hero-bg {
@@ -114,12 +114,26 @@ body {
   font-size: 48px;
   font-weight: 800;
   line-height: 1.1;
-  opacity: 0.04;
+  opacity: 0.10;
+}
+.hero .hrow.l {
+  animation: hl var(--dur, 18s) linear infinite;
+}
+.hero .hrow.r {
+  animation: hr var(--dur, 18s) linear infinite;
 }
 @media (prefers-color-scheme: light) {
   .hero .hrow {
-    opacity: 0.15;
+    opacity: 0.25;
   }
+}
+@keyframes hl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(var(--shift, -50%)); }
+}
+@keyframes hr {
+  from { transform: translateX(calc(-1 * var(--shift, -50%))); }
+  to   { transform: translateX(0); }
 }
 .hero .hero-inner {
   position: relative;
@@ -220,14 +234,14 @@ body {
   padding: 12px 28px;
   border-radius: 8px;
   background: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
+  color: #e5e5e5;
+  border: 1px solid rgba(255,255,255,0.35);
   font-size: 14px;
   cursor: pointer;
   transition: border-color 0.2s;
 }
 .hero .hero-inner .hero-btns .btn-sub:hover {
-  border-color: var(--border-hover);
+  border-color: rgba(255,255,255,0.7);
 }
 
 /* SECTION */

@@ -1,44 +1,59 @@
 // Hero section background animation
 export function initHeroBg() {
+  const WORDS = [
+    { text: 'PHP',        color: '#7b88c9', icon: 'devicon-php-plain' },
+    { text: 'C#',         color: '#a855f7', icon: 'devicon-csharp-plain' },
+    { text: 'SECURITY',   color: '#f472b6', icon: null },
+    { text: 'Python',     color: '#facc15', icon: 'devicon-python-plain' },
+    { text: 'SQL',        color: '#60a5fa', icon: 'devicon-postgresql-plain' },
+    { text: 'NETWORK',    color: '#34d399', icon: null },
+    { text: 'HTML',       color: '#fb923c', icon: 'devicon-html5-plain' },
+    { text: 'CSS',        color: '#38bdf8', icon: 'devicon-css3-plain' },
+    { text: 'JAVASCRIPT', color: '#fde047', icon: 'devicon-javascript-plain' },
+    { text: 'TYPESCRIPT', color: '#60a5fa', icon: 'devicon-typescript-plain' },
+    { text: 'GO',         color: '#67e8f9', icon: 'devicon-go-plain' },
+    { text: 'CLOUD',      color: '#a78bfa', icon: 'devicon-amazonwebservices-plain' },
+    { text: 'DOCKER',     color: '#38bdf8', icon: 'devicon-docker-plain' },
+    { text: 'GIT',        color: '#f87171', icon: 'devicon-git-plain' },
+  ];
+  const SEP = '　';
 
-  const BGTEXT = 'SECURITY　Python　SQL　NETWORK　HTML　CSS　JAVASCRIPT　TYPESCRIPT　GO　CLOUD　DOCKER　GIT';
-
-  const T = BGTEXT + '　';
-  const bg = document.getElementById('heroBg');
-  const isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-  const color = isLight ? '#000' : '#fff';
-
-  const baseDurations = [16, 20, 18, 22, 15, 19, 17, 21, 14];
-  for (let i = 0; i < 9; i++) {
-    const r = document.createElement('div');
-    r.className = 'hrow';
-    r.style.color = color;
-    r.style.willChange = 'transform';
-
-    // s1を基準幅として使い、s2はその複製（シームレスループ用）
-    const s1 = document.createElement('span');
-    const s2 = document.createElement('span');
-    s1.textContent = T.repeat(3);
-    s2.textContent = T.repeat(3);
-    s2.setAttribute('aria-hidden', 'true');
-    r.appendChild(s1);
-    r.appendChild(s2);
-    bg.appendChild(r);
-
-    // s1の幅が確定してからアニメーションを設定
-    requestAnimationFrame(() => {
-      const w = s1.getBoundingClientRect().width;
-      if (w === 0) return;
-      const dir = i % 2 === 0 ? -1 : 1;
-      const dur = baseDurations[i] * 1000;
-      const delay = -(baseDurations[i] * (i / 9)) * 1000;
-      r.animate(
-        [
-          { transform: `translate3d(0, 0, 0)` },
-          { transform: `translate3d(${dir * w}px, 0, 0)` },
-        ],
-        { duration: dur, delay, iterations: Infinity, easing: 'linear' }
-      );
+  function makeUnit(frag) {
+    WORDS.forEach(w => {
+      const s = document.createElement('span');
+      s.style.color = w.color;
+      s.style.marginRight = '0.15em';
+      if (w.icon) {
+        const i = document.createElement('i');
+        i.className = w.icon + ' colored';
+        i.style.marginRight = '0.2em';
+        i.style.fontSize = '0.85em';
+        i.style.verticalAlign = 'middle';
+        s.appendChild(i);
+      }
+      s.appendChild(document.createTextNode(w.text + SEP));
+      frag.appendChild(s);
     });
   }
+
+  document.querySelectorAll('#heroBg .hrow').forEach(r => {
+    r.style.animationPlayState = 'paused';
+    const frag = document.createDocumentFragment();
+    for (let rep = 0; rep < 8; rep++) makeUnit(frag);
+    r.appendChild(frag);
+  });
+
+  document.fonts.ready.then(() => {
+    const probe = document.createElement('div');
+    probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;font-size:48px;font-weight:800;top:-9999px;';
+    makeUnit(probe);
+    document.body.appendChild(probe);
+    const unitW = probe.getBoundingClientRect().width;
+    document.body.removeChild(probe);
+
+    document.querySelectorAll('#heroBg .hrow').forEach(r => {
+      r.style.setProperty('--shift', r.classList.contains('l') ? `-${unitW}px` : `${unitW}px`);
+      r.style.animationPlayState = 'running';
+    });
+  });
 }
