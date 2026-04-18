@@ -9,7 +9,7 @@ export function initSkills() {
           const level = parseInt(skillBar.dataset.level);
           const color = skillBar.dataset.color;
           // Create 5 segments
-          skillBar.innerHTML = '';
+          skillBar.replaceChildren();
           for (let i = 1; i <= 5; i++) {
             const segment = document.createElement('div');
             segment.className = 'skill-segment';

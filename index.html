@@ -4,6 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="permissions-policy" content="geolocation=(), microphone=(), camera=()">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'none';
+    script-src 'self';
+    style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';
+    font-src https://cdn.jsdelivr.net;
+    img-src 'self' https://github.com;
+    connect-src 'none';
+    object-src 'none';
+    base-uri 'self';
+  ">
   <title>Portfolio - R3id</title>
 
   <!-- OGP -->
@@ -20,8 +33,8 @@
   <meta name="twitter:description" content="セキュリティ・バックエンド・フロントエンドまで幅広くやっています。">
   <meta name="twitter:image" content="https://github.com/Reeeid.png">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha384-EXatlQyrOJgDaM9/a74ArMzy7/2bTMSrZj8ID1IPeVmc3GncfCugefCFWSLj8JL/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.17.0/devicon.min.css" integrity="sha384-6iv3tXABd3c9DYulXujJl8n22ahn/12f45MomxoPv6jBX4LBE4gNJjfkx5mAKIqR" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -189,7 +202,7 @@
           <h3>GROWTREE</h3>
           <p>スキル診断・プログラミング学習支援ツール(バックエンド・認証部分を作成)</p>
           <div class="work-tags"><span class="wtag">Python</span><span class="wtag">FastAPI</span><span class="wtag">React</span><span class="wtag">TypeScript</span><span class="wtag">Oauth2</span></div>
-          <a class="work-link" href="https://github.com/kc3hack/2026_team29" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          <a class="work-link" href="https://github.com/kc3hack/2026_team29" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
         </div>
       </div>
       <div class="work-card reveal" style="transition-delay:.1s">
@@ -198,7 +211,7 @@
           <h3>HTML to EMOJI</h3>
           <p>HTMLを絵文字に変換する拡張機能</p>
           <div class="work-tags"><span class="wtag">Go</span><span class="wtag">JavaScript</span><span class="wtag">LLMstudio</span></div>
-          <a class="work-link" href="https://github.com/Reeeid/Emoji-html" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          <a class="work-link" href="https://github.com/Reeeid/Emoji-html" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
         </div>
       </div>
       <div class="work-card reveal" style="transition-delay:.2s">
@@ -207,7 +220,7 @@
           <h3>TODOテトリス</h3>
           <p>Reactで作成したTODOアプリ</p>
           <div class="work-tags"><span class="wtag">React</span><span class="wtag">TypeScript</span><span class="wtag">Vercel</span><span class="wtag">Go</span></div>
-          <a class="work-link" href="https://github.com/Reeeid/TodoTetris" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          <a class="work-link" href="https://github.com/Reeeid/TodoTetris" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
         </div>
       </div>
     </div>
@@ -219,11 +232,11 @@
       <div class="sec-heading" style="text-align:center">連絡先</div>
       <p>何かあればXにどうぞ。<br>よろしくね</p>
       <div class="contact-links">
-        <a class="c-link" href="https://github.com/Reeeid" target="_blank" rel="noopener">
+        <a class="c-link" href="https://github.com/Reeeid" target="_blank" rel="noopener noreferrer">
           <i class="fab fa-github"></i>
           GitHub
         </a>
-        <a class="c-link" href="https://x.com/R3ID_0107" target="_blank" rel="noopener">
+        <a class="c-link" href="https://x.com/R3ID_0107" target="_blank" rel="noopener noreferrer">
           <i class="fa-brands fa-x-twitter"></i>
           X / Twitter
         </a>
