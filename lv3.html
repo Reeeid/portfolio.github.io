@@ -106,8 +106,8 @@
       } catch {}
       msg.innerHTML = `
         <span class="win">✓ Lv.3 CLEAR — you are the master.</span><br>
-        <span class="dim">go submit on the terminal.</span><br>
-        <a href="/" style="color:#818cf8">← portfolio</a>
+        <span class="dim">go back and submit the final flag on the terminal.</span><br>
+        <a href="/" style="color:#818cf8">← back to terminal</a>
       `;
     } else {
       msg.innerHTML = '<span class="err">✗ wrong flag.</span>';
@@ -116,10 +116,10 @@
 
   inp.addEventListener('keydown', e => {
     if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); handleEnter(); }
-  });
+  }, true);
   inp.addEventListener('keyup', e => {
     if (e.key === 'Enter' && inp.value.trim()) handleEnter();
-  });
+  }, true);
 
   inp.focus();
 </script>

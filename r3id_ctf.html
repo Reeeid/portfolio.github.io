@@ -71,18 +71,18 @@
 <span class="bright">you found it.</span>
 <span class="dim">but finding is only half the job.</span>
 
-— <span class="dim">challenge: Lv.2 / REV</span>
+— <span class="dim">challenge: Lv.2 / XOR REV</span>
 
-<span class="dim">// whose portfolio are you on?</span>
-<span class="dim">const KEY = ???;</span>
+<span class="dim">const KEY = ???;  // type: hint</span>
 <span class="dim">const enc = </span><span id="encDisplay"></span>
 
-<span class="dim">// decrypt and find the flag.</span>
-<span class="dim">// submit on the terminal at the bottom of the portfolio.</span></pre>
+<span class="dim">// hint: (A ^ B) ^ B = A  — XOR twice, back to origin.</span>
+<span class="dim">// paste in console to decrypt:</span>
+<span class="dim">// enc.map((b,i) => String.fromCharCode(b ^ KEY.charCodeAt(i % KEY.length))).join('')</span></pre>
 
   <div class="input-row">
     <span class="prompt">r3id@lv2:~$&nbsp;</span>
-    <input id="inp" type="text" autocomplete="off" spellcheck="false" placeholder="flag R3ID{...}">
+    <input id="inp" type="text" autocomplete="off" spellcheck="false" placeholder="hint / flag R3ID{...}">
   </div>
   <div id="msg"></div>
 </div>
@@ -107,10 +107,15 @@
     const raw = inp.value.trim();
     inp.value = '';
 
+    if (raw === 'hint') {
+      msg.innerHTML = '<span class="dim">hint: KEY = "r3id"</span>';
+      return;
+    }
+
     const val = raw.startsWith('flag ') ? raw.slice(5).trim() : raw;
 
     if (!val.toUpperCase().startsWith('R3ID{')) {
-      msg.innerHTML = '<span class="err">invalid format. expected R3ID{...}</span>';
+      msg.innerHTML = '<span class="err">invalid format. expected R3ID{...} — or type: hint</span>';
       return;
     }
 
@@ -122,10 +127,9 @@
       } catch {}
 
       msg.innerHTML = `
-        <span class="win">✓ Lv.2 CLEAR — flag is correct.</span><br>
-        <span class="dim">go back and submit on the terminal.</span><br>
-        <span class="dim">...and something compiled is waiting somewhere.</span><br>
-        <a href="/" style="color:#4ade80">← portfolio</a>
+        <span class="win">✓ Lv.2 CLEAR — cipher cracked.</span><br>
+        <span class="dim">something compiled is waiting.</span><br>
+        <a href="/lv3.html" style="color:#4ade80">→ next: /lv3.html</a>
       `;
     } else {
       msg.innerHTML = '<span class="err">✗ wrong flag. keep digging.</span>';
@@ -134,10 +138,10 @@
 
   inp.addEventListener('keydown', e => {
     if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); handleEnter(); }
-  });
+  }, true);
   inp.addEventListener('keyup', e => {
     if (e.key === 'Enter' && inp.value.trim()) handleEnter();
-  });
+  }, true);
 
   inp.focus();
 </script>

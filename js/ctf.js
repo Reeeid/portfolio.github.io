@@ -21,14 +21,11 @@ export function initCTF() {
     'css/main.css':   ['~14kb of style. boring.'],
     'js/main.js':     ['entry point. nothing spicy.'],
     'js/ctf.js':      ["you're already inside it."],
-    '.hidden': [
-      // base64 placeholder — replace with real hint path when CTF is ready
-      'aGludDogbG9vayBkZWVwZXIgaW4gdGhlIHNvdXJjZQ==',
-    ],
+    '.hidden':        ['aGludDogY2hlY2sgd2hhdCB0aGUgY3Jhd2xlciBjYW4ndCBzZWU='],
   };
 
   // ── level progression ──────────────────────────────────
-  const LEVELS = { lv0: false, lv1: false };
+  const LEVELS = { lv1: false };
 
   function loadProgress() {
     try {
@@ -102,21 +99,13 @@ export function initCTF() {
         const lines = text.trimEnd().split('\n');
         levelClear('lv1', [
           '[ Lv.1 CLEAR ]',
-          "you found something the crawler wasn't supposed to see.",
-          'next: visit the disallowed path.',
+          "you found what the crawler wasn't supposed to see.",
+          'next: /r3id_ctf.html',
         ]);
         return lines;
       } catch {
         return ['cat: robots.txt: fetch failed'];
       }
-    }
-
-    if (name === '.hidden') {
-      levelClear('lv0', [
-        '[ Lv.0 CLEAR ]',
-        'good eyes. now decode what you found.',
-        'next: view-source and look deeper.',
-      ]);
     }
 
     if (name in FS && FS[name] !== null) return FS[name];
@@ -157,11 +146,15 @@ export function initCTF() {
     cat:    cmdCat,
     echo:   cmdEcho,
     uname:  cmdUname,
-    hint:   () => [
-      'hint: this page has more layers than it looks.',
-      'hint: start from the source.',
-      'hint: or just poke around here first.',
-    ],
+    hint: () => {
+      if (LEVELS.lv3) return ['all levels cleared. submit with: flag R3ID{...}'];
+      if (LEVELS.lv2) return ['lv.2 cleared. something compiled is waiting at /lv3.html'];
+      if (LEVELS.lv1) return ['lv.1 cleared. visit: /r3id_ctf.html'];
+      return [
+        'hint: try ls -a',
+        'hint: some files are not meant to be seen.',
+      ];
+    },
     flag: async (args) => {
       if (!args.length) return ['usage: flag <R3ID{...}>'];
       const input = args[0];
@@ -280,48 +273,56 @@ export function initCTF() {
       handleTab();
       return;
     }
-    // Enter: handle here and mark as handled
     if (e.key === 'Enter') {
       e.preventDefault();
       e.stopPropagation();
       handleEnter();
     }
-  });
+  }, true);
 
   // Fallback for mobile / browsers that suppress keydown Enter
   input.addEventListener('keyup', e => {
-    if (e.key === 'Enter') {
-      // only run if keydown didn't already handle it (input is now empty)
-      if (input.value.trim()) handleEnter();
-    }
-  });
+    if (e.key === 'Enter' && input.value.trim()) handleEnter();
+  }, true);
 
   body.addEventListener('click', () => input.focus());
 
   // restore progress on load
   loadProgress();
-  if (LEVELS.lv2) {
-    print('[ resumed ] lv.0 + lv.1 + lv.2 cleared. submit the flag below.', 'tc-dim');
+  if (LEVELS.lv3) {
+    print('[ resumed ] all levels cleared. submit the final flag below.', 'tc-dim');
+    print('');
+  } else if (LEVELS.lv2) {
+    print('[ resumed ] lv.1 + lv.2 cleared. next: /lv3.html', 'tc-dim');
     print('');
   } else if (LEVELS.lv1) {
-    print('[ resumed ] lv.0 + lv.1 cleared. next: /r3id_ctf.html', 'tc-dim');
-    print('');
-  } else if (LEVELS.lv0) {
-    print('[ resumed ] lv.0 cleared. next: view-source.', 'tc-dim');
+    print('[ resumed ] lv.1 cleared. next: /r3id_ctf.html', 'tc-dim');
     print('');
   }
 
-  // pick up lv2 clear set by r3id_ctf.html
+  // pick up level clears set by external challenge pages
   try {
     const saved = JSON.parse(localStorage.getItem('r3id_ctf') || '{}');
-    if (saved.lv2 && !LEVELS.lv2) {
+    if (saved.lv3 && !LEVELS.lv3) {
+      LEVELS.lv3 = true;
+      saveProgress();
+      setTimeout(() => {
+        print('');
+        print('─────────────────────────────────', 'tc-dim');
+        print('[ Lv.3 CLEAR ]', 'tc-win');
+        print('WASM mastered. submit the final flag here.', 'tc-win');
+        print('─────────────────────────────────', 'tc-dim');
+        print('');
+        scrollBottom();
+      }, 300);
+    } else if (saved.lv2 && !LEVELS.lv2) {
       LEVELS.lv2 = true;
       saveProgress();
       setTimeout(() => {
         print('');
         print('─────────────────────────────────', 'tc-dim');
         print('[ Lv.2 CLEAR ]', 'tc-win');
-        print('you reversed the cipher. now submit the flag.', 'tc-win');
+        print('cipher reversed. next: /lv3.html', 'tc-win');
         print('─────────────────────────────────', 'tc-dim');
         print('');
         scrollBottom();
