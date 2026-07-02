@@ -249,11 +249,8 @@ export function initCTF() {
   }
 
   // ── input handler ──────────────────────────────────────
-  input.addEventListener('keydown', async e => {
-    if (e.key === 'Tab') { e.preventDefault(); handleTab(); return; }
-    if (e.key !== 'Enter') return;
-
-    const raw  = input.value.trim();
+  async function handleEnter() {
+    const raw = input.value.trim();
     input.value = '';
     if (!raw) return;
 
@@ -263,11 +260,7 @@ export function initCTF() {
     const cmd   = parts[0].toLowerCase();
     const args  = parts.slice(1);
 
-    if (cmd === 'clear') {
-      clearScreen();
-      scrollBottom();
-      return;
-    }
+    if (cmd === 'clear') { clearScreen(); scrollBottom(); return; }
 
     if (COMMANDS[cmd]) {
       const result = await Promise.resolve(COMMANDS[cmd](args));
@@ -278,6 +271,29 @@ export function initCTF() {
 
     print('');
     scrollBottom();
+  }
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      e.stopPropagation();
+      handleTab();
+      return;
+    }
+    // Enter: handle here and mark as handled
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      e.stopPropagation();
+      handleEnter();
+    }
+  });
+
+  // Fallback for mobile / browsers that suppress keydown Enter
+  input.addEventListener('keyup', e => {
+    if (e.key === 'Enter') {
+      // only run if keydown didn't already handle it (input is now empty)
+      if (input.value.trim()) handleEnter();
+    }
   });
 
   body.addEventListener('click', () => input.focus());
