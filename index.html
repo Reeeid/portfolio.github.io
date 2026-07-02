@@ -13,7 +13,7 @@
     style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';
     font-src https://cdn.jsdelivr.net;
     img-src 'self' https://github.com https://avatars.githubusercontent.com https://cdn.jsdelivr.net;
-    connect-src 'none';
+    connect-src 'self';
     object-src 'none';
     base-uri 'self';
   ">
@@ -222,6 +222,32 @@
           <i class="fa-brands fa-x-twitter"></i>
           X / Twitter
         </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="ctf">
+    <div class="terminal">
+      <div class="term-bar">
+        <span class="term-dot td-red"></span>
+        <span class="term-dot td-yellow"></span>
+        <span class="term-dot td-green"></span>
+        <span class="term-title">r3id@ctf:~</span>
+      </div>
+      <div class="term-body" id="termBody">
+        <div class="term-line tc-dim">  ██████╗ ██████╗ ███████╗██╗██████╗ </div>
+        <div class="term-line tc-dim">  ██╔══██╗╚════██╗██╔════╝██║██╔══██╗</div>
+        <div class="term-line tc-dim">  ██████╔╝ █████╔╝█████╗  ██║██║  ██║</div>
+        <div class="term-line tc-dim">  ██╔══██╗ ╚═══██╗██╔══╝  ██║██║  ██║</div>
+        <div class="term-line tc-dim">  ██║  ██║██████╔╝███████╗██║██████╔╝ </div>
+        <div class="term-line">&nbsp;</div>
+        <div class="term-line">CTF challenge is hidden somewhere in this site.</div>
+        <div class="term-line tc-dim">type <span class="tc-green">help</span> for available commands.</div>
+        <div class="term-line">&nbsp;</div>
+        <div class="term-input-row" id="termInputRow">
+          <span class="term-prompt">r3id@ctf:~$&nbsp;</span>
+          <input id="flagInput" class="term-input" type="text" autocomplete="off" spellcheck="false" aria-label="flag input">
+        </div>
       </div>
     </div>
   </section>

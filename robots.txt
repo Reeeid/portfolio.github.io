@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# don't look here
+Disallow: /r3id_ctf.html
+
+# definitely don't look here either
+Disallow: /lv3.html

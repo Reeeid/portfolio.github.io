@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>r3id — you shouldn't be here</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0a120a;
+      color: #4ade80;
+      font-family: 'Courier New', Courier, monospace;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    #wrap {
+      width: 100%;
+      max-width: 680px;
+    }
+
+    pre {
+      font-size: 13px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .dim  { color: #2d6a2d; }
+    .bright { color: #86efac; }
+    .err  { color: #f87171; }
+    .win  { color: #86efac; text-shadow: 0 0 8px rgba(134,239,172,.5); }
+
+    .input-row {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .prompt { color: #4ade80; white-space: nowrap; }
+
+    input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #4ade80;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px;
+      caret-color: #4ade80;
+    }
+
+    #msg { margin-top: 1rem; font-size: 13px; line-height: 1.7; }
+  </style>
+</head>
+<body>
+<div id="wrap">
+  <pre><span class="dim">
+  ██████╗ ██████╗     ██╗██████╗
+  ██╔══██╗╚════██╗   ██╔╝██╔══██╗
+  ██████╔╝ █████╔╝  ██╔╝ ██║  ██║
+  ██╔══██╗ ╚═══██╗ ██╔╝  ██║  ██║
+  ██║  ██║██████╔╝██╔╝   ██████╔╝
+</span>
+<span class="bright">you found it.</span>
+<span class="dim">but finding is only half the job.</span>
+
+— <span class="dim">challenge: Lv.2 / REV</span>
+
+<span class="dim">// whose portfolio are you on?</span>
+<span class="dim">const KEY = ???;</span>
+<span class="dim">const enc = </span><span id="encDisplay"></span>
+
+<span class="dim">// decrypt and find the flag.</span>
+<span class="dim">// submit on the terminal at the bottom of the portfolio.</span></pre>
+
+  <div class="input-row">
+    <span class="prompt">r3id@lv2:~$&nbsp;</span>
+    <input id="inp" type="text" autocomplete="off" spellcheck="false" placeholder="flag R3ID{...}">
+  </div>
+  <div id="msg"></div>
+</div>
+
+<script>
+  const enc = [32,0,32,32,9,114,5,20,19,80,8,59,17,71,15,59,27,64,54,22,23,80,6,9,31,86,7,0,23,87,54,7,6,85,20];
+
+  document.getElementById('encDisplay').textContent =
+    JSON.stringify(enc) + ';';
+
+  async function verify(input) {
+    const hash = '2c067ecc8d035713783fedc4d04508e10b078c9afc7a7b2e46b66577e416e4ec';
+    const buf  = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
+    const hex  = [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2,'0')).join('');
+    return hex === hash;
+  }
+
+  const inp = document.getElementById('inp');
+  const msg = document.getElementById('msg');
+
+  inp.addEventListener('keydown', async e => {
+    if (e.key !== 'Enter') return;
+    const raw = inp.value.trim();
+    inp.value = '';
+
+    const val = raw.startsWith('flag ') ? raw.slice(5).trim() : raw;
+
+    if (!val.toUpperCase().startsWith('R3ID{')) {
+      msg.innerHTML = '<span class="err">invalid format. expected R3ID{...}</span>';
+      return;
+    }
+
+    if (await verify(val)) {
+      try {
+        const saved = JSON.parse(localStorage.getItem('r3id_ctf') || '{}');
+        saved.lv2 = true;
+        localStorage.setItem('r3id_ctf', JSON.stringify(saved));
+      } catch {}
+
+      msg.innerHTML = `
+        <span class="win">✓ Lv.2 CLEAR — flag is correct.</span><br>
+        <span class="dim">go back and submit on the terminal.</span><br>
+        <span class="dim">...and something compiled is waiting somewhere.</span><br>
+        <a href="/" style="color:#4ade80">← portfolio</a>
+      `;
+    } else {
+      msg.innerHTML = '<span class="err">✗ wrong flag. keep digging.</span>';
+    }
+  });
+
+  inp.focus();
+</script>
+</body>
+</html>

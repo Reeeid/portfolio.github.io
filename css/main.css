@@ -1,9 +1,9 @@
 /* ── CSS Variables ── */
 :root {
-  --primary:    var(--primary);
-  --secondary:  var(--secondary);
-  --tertiary:   var(--tertiary);
-  --quaternary: var(--quaternary);
+  --primary:    #a78bfa;
+  --secondary:  #34d399;
+  --tertiary:   #fb923c;
+  --quaternary: #f472b6;
 
   --bg:           #0a0a0a;
   --bg-alt:       #141414;
@@ -621,6 +621,102 @@ body {
 .contact-wrap .contact-links .c-link:hover {
   border-color: var(--border-hover);
   color: var(--text);
+}
+
+/* CTF TERMINAL */
+#ctf {
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.terminal {
+  width: 100%;
+  max-width: 720px;
+  background: #0d1a0d;
+  border: 1px solid #1a3a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 0 40px rgba(0, 255, 0, 0.06);
+}
+
+.term-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: #0a130a;
+  border-bottom: 1px solid #1a3a1a;
+}
+
+.term-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.td-red    { background: #ff5f57; }
+.td-yellow { background: #febc2e; }
+.td-green  { background: #28c840; }
+
+.term-title {
+  margin-left: 8px;
+  font-size: 12px;
+  color: #2d6a2d;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.term-body {
+  padding: 1.25rem 1.5rem;
+  max-height: 420px;
+  overflow-y: auto;
+  cursor: text;
+  scroll-behavior: smooth;
+}
+
+.term-body::-webkit-scrollbar { width: 4px; }
+.term-body::-webkit-scrollbar-track { background: transparent; }
+.term-body::-webkit-scrollbar-thumb { background: #1a3a1a; border-radius: 2px; }
+
+.term-line {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #4ade80;
+  white-space: pre;
+}
+
+.tc-dim   { color: #2d6a2d; }
+.tc-green { color: #4ade80; }
+.tc-error { color: #f87171; }
+.tc-win   { color: #86efac; text-shadow: 0 0 8px rgba(134,239,172,.6); }
+
+.term-input-row {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.term-prompt {
+  font-size: 13px;
+  color: #4ade80;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.term-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #4ade80;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  caret-color: #4ade80;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 /* FOOTER */

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>r3id — lv.3</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0a0a12;
+      color: #818cf8;
+      font-family: 'Courier New', Courier, monospace;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    #wrap { width: 100%; max-width: 680px; }
+    pre { font-size: 13px; line-height: 1.7; white-space: pre-wrap; word-break: break-all; }
+    .dim    { color: #312e81; }
+    .bright { color: #a5b4fc; }
+    .err    { color: #f87171; }
+    .win    { color: #a5b4fc; text-shadow: 0 0 8px rgba(165,180,252,.5); }
+    .input-row { display: flex; align-items: center; margin-top: 1rem; }
+    .prompt { color: #818cf8; white-space: nowrap; }
+    input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #818cf8;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px;
+      caret-color: #818cf8;
+    }
+    #msg { margin-top: 1rem; font-size: 13px; line-height: 1.7; }
+  </style>
+</head>
+<body>
+<div id="wrap">
+  <pre><span class="dim">
+  ██╗    ██╗ █████╗ ███████╗███╗   ███╗
+  ██║    ██║██╔══██╗██╔════╝████╗ ████║
+  ██║ █╗ ██║███████║███████╗██╔████╔██║
+  ██║███╗██║██╔══██║╚════██║██║╚██╔╝██║
+  ╚███╔███╔╝██║  ██║███████║██║ ╚═╝ ██║
+</span>
+<span class="bright">Lv.3 — WASM REV</span>
+<span class="dim">something was compiled. can you read it?</span>
+
+<span class="dim">$ curl https://reeeid.github.io/portfolio.github.io/checker.wasm -o checker.wasm</span>
+<span class="dim">$ wasm2wat checker.wasm</span>
+<span class="dim">  or open it in Ghidra.</span>
+
+</pre>
+
+  <div class="input-row">
+    <span class="prompt">r3id@lv3:~$&nbsp;</span>
+    <input id="inp" type="text" autocomplete="off" spellcheck="false" placeholder="flag R3ID{...}">
+  </div>
+  <div id="msg"></div>
+</div>
+
+<script>
+  async function verify(input) {
+    // load and call the actual wasm checker
+    try {
+      const res  = await fetch('/checker.wasm');
+      const buf  = await res.arrayBuffer();
+      const mod  = await WebAssembly.instantiate(buf, {});
+      const { check, memory } = mod.instance.exports;
+      const bytes = new TextEncoder().encode(input);
+      const ptr   = 1024; // write input at offset 1024 (away from flag data at 0)
+      new Uint8Array(memory.buffer).set(bytes, ptr);
+      return check(ptr, bytes.length) === 1;
+    } catch {
+      // fallback: hash check
+      const hash = 'f9dc7560d1847814cfe59833cbe9ea7dd981e3170ed6ded71a92b2e68dece2f7';
+      const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
+      const h = [...new Uint8Array(b)].map(x => x.toString(16).padStart(2,'0')).join('');
+      return h === hash;
+    }
+  }
+
+  const inp = document.getElementById('inp');
+  const msg = document.getElementById('msg');
+
+  inp.addEventListener('keydown', async e => {
+    if (e.key !== 'Enter') return;
+    const raw = inp.value.trim();
+    inp.value = '';
+    const val = raw.startsWith('flag ') ? raw.slice(5).trim() : raw;
+
+    if (!val.toUpperCase().startsWith('R3ID{')) {
+      msg.innerHTML = '<span class="err">invalid format. expected R3ID{...}</span>';
+      return;
+    }
+
+    if (await verify(val)) {
+      try {
+        const saved = JSON.parse(localStorage.getItem('r3id_ctf') || '{}');
+        saved.lv3 = true;
+        localStorage.setItem('r3id_ctf', JSON.stringify(saved));
+      } catch {}
+      msg.innerHTML = `
+        <span class="win">✓ Lv.3 CLEAR — you are the master.</span><br>
+        <span class="dim">go submit on the terminal.</span><br>
+        <a href="/" style="color:#818cf8">← portfolio</a>
+      `;
+    } else {
+      msg.innerHTML = '<span class="err">✗ wrong flag.</span>';
+    }
+  });
+
+  inp.focus();
+</script>
+</body>
+</html>
