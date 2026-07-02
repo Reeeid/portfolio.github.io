@@ -18,10 +18,9 @@
     base-uri 'self';
   ">
   <title>Portfolio - R3id</title>
-  <!-- Todo favicon入れる-->
   <!-- OGP -->
-  <meta property="og:title" content="Portfolio - Reeeid">
-  <meta property="og:description" content="セキュリティ・バックエンド・フロントエンドまで幅広くやっています。">
+  <meta property="og:title" content="Portfolio - Reeeid | Business × IT Engineer">
+  <meta property="og:description" content="ビジネス×ITの視点で、セキュリティからバックエンド・フロントエンドまで一気通貫で対応するエンジニアです。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://reeeid.github.io/portfolio.github.io/">
   <meta property="og:image" content="https://github.com/Reeeid.png">
@@ -29,13 +28,13 @@
   <meta property="og:image:height" content="460">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@R3ID_0107">
-  <meta name="twitter:title" content="Portfolio - Reeeid">
-  <meta name="twitter:description" content="セキュリティ・バックエンド・フロントエンドまで幅広くやっています。">
+  <meta name="twitter:title" content="Portfolio - Reeeid | Business × IT Engineer">
+  <meta name="twitter:description" content="ビジネス×ITの視点で、セキュリティからバックエンド・フロントエンドまで一気通貫で対応するエンジニアです。">
   <meta name="twitter:image" content="https://github.com/Reeeid.png">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha384-EXatlQyrOJgDaM9/a74ArMzy7/2bTMSrZj8ID1IPeVmc3GncfCugefCFWSLj8JL/" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.17.0/devicon.min.css" integrity="sha384-6iv3tXABd3c9DYulXujJl8n22ahn/12f45MomxoPv6jBX4LBE4gNJjfkx5mAKIqR" crossorigin="anonymous">
-  <link rel="icon" href="data:,">
+  <link rel="icon" type="image/png" href="https://github.com/Reeeid.png">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -65,18 +64,32 @@
     </div>
     <div class="hero-inner">
       <div class="hero-tag"><span class="dot"></span>available for work</div>
+      <div class="usp-badge">
+        <span class="usp-side biz"><i class="fa-solid fa-chart-line"></i>Business</span>
+        <span class="usp-x">×</span>
+        <span class="usp-side it"><i class="fa-solid fa-code"></i>IT</span>
+      </div>
       <h1>
         <span class="c1">Business</span><br>
         <span class="c2">Security</span><br>
         <span class="c3">Technology</span>
       </h1>
-      <p class="hero-sub">セキュリティからバックエンド・フロントエンドまで幅広くやっています。Goが一番好きです。
+      <p class="hero-sub">経営学部出身というバックグラウンドを活かし、ビジネス課題とIT実装の両方を理解した上で開発します。セキュリティ・バックエンド・フロントエンドまで一気通貫で対応。Goが一番好きです。
       </p>
       <div class="hero-btns">
         <button class="btn-main" id="btnWorks"><i class="fa-solid fa-briefcase"></i>制作物を見る</button>
         <button class="btn-sub" id="btnContact"><i class="fa-solid fa-link"></i>外部リンク</button>
       </div>
     </div>
+  </section>
+
+  <section id="axis">
+    <div class="sec-eyebrow" style="text-align:center">— my axis</div>
+    <p class="axis-tagline reveal">
+      <span class="at-biz">ビジネスの視点</span>
+      <span class="at-x">×</span>
+      <span class="at-eng">エンジニアリング</span>
+    </p>
   </section>
 
   <section class="section section-alt" id="about">
@@ -105,88 +118,29 @@
       <div class="sec-heading">スキルセット</div>
     </div>
     <div class="skill-legend">
-      <span>レベル：</span>
-      <span class="legend-item"><b>1</b> 知識あり</span>
-      <span class="legend-item"><b>2</b> 個人実装経験</span>
-      <span class="legend-item"><b>3</b> 実務・制作物で活用</span>
-      <span class="legend-item"><b>4</b> 深い理解・応用可能</span>
-      <span class="legend-item"><b>5</b> OSS作成・言語そのものの開発者クラス</span>
+      <span class="sl-item"><b>lv.1</b> 知識あり</span>
+      <span class="sl-sep">·</span>
+      <span class="sl-item"><b>lv.2</b> 個人実装経験</span>
+      <span class="sl-sep">·</span>
+      <span class="sl-item"><b>lv.3</b> 実務・制作物で活用</span>
+      <span class="sl-sep">·</span>
+      <span class="sl-item"><b>lv.4</b> 深い理解・応用可能</span>
     </div>
-    <div class="skills-grid" id="skillsEl">
-      <div class="skill-card reveal">
-        <div class="skill-label">セキュリティ<span style="color:#a78bfa">4</span></div>
-        <div class="skill-bar" data-level="4" data-color="#a78bfa"></div>
-        <div class="skill-desc">情報安全確保支援士試験に合格しました。セキュリティに関しては知識があります。</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.1s">
-        <div class="skill-label"><i class="devicon-typescript-plain colored"></i>TypeScript<span style="color:#34d399">3</span></div>
-        <div class="skill-bar" data-level="3" data-color="#34d399"></div>
-        <div class="skill-desc">型安全という観点において、オトクでおいしい言語です！！！</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.2s">
-        <div class="skill-label"><i class="devicon-go-plain colored"></i>Go<span style="color:#78a829">4</span></div>
-        <div class="skill-bar" data-level="4" data-color="#78a829"></div>
-        <div class="skill-desc">すき。特にWebアプリケーションの開発に興味があり、ソフトウェアルーターの実装等、個人プロジェクトで活用しています。</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.15s">
-        <div class="skill-label"><i class="devicon-html5-plain colored"></i><i class="devicon-css3-plain colored"></i>HTML / CSS<span style="color:#fb923c">3</span></div>
-        <div class="skill-bar" data-level="3" data-color="#fb923c"></div>
-        <div class="skill-desc">業務でも使用しています。基本的にはフレームワークを使用します。</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.2s">
-        <div class="skill-label"><i class="devicon-python-plain colored"></i>Python<span style="color:#f472b6">3</span></div>
-        <div class="skill-bar" data-level="3" data-color="#f472b6"></div>
-        <div class="skill-desc">バックエンド開発やデータ処理に使用。FastAPIでのAPI開発経験があります。</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.25s">
-        <div class="skill-label">MDM / Intune<span style="color:#60a5fa">1</span></div>
-        <div class="skill-bar" data-level="1" data-color="#60a5fa"></div>
-        <div class="skill-desc">モバイルデバイス管理の概念とIntuneの活用方法についてお話しできます。知識オンリーです。</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.3s">
-        <div class="skill-label">ネットワーク<span style="color:#a78bfa">2</span></div>
-        <div class="skill-bar" data-level="2" data-color="#a78bfa"></div>
-        <div class="skill-desc">ネットワーク基礎知識はあり、ソフトウェアルーターの開発について一定の経験があります。（TCP/IP/ARP/ICMP）</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.35s">
-        <div class="skill-label"><i class="devicon-cplusplus-plain colored"></i>C++<span style="color:#254b84">2</span></div>
-        <div class="skill-bar" data-level="2" data-color="#254b84"></div>
-        <div class="skill-desc">組み込み系で使用、仕事の依頼で音声出力・制御のプログラムを作った程度</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.4s">
-        <div class="skill-label"><i class="devicon-csharp-plain colored"></i>C#<span style="color:#68217a">2</span></div>
-        <div class="skill-bar" data-level="2" data-color="#68217a"></div>
-        <div class="skill-desc">Unityで使っています。</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.45s">
-        <div class="skill-label"><i class="devicon-java-plain colored"></i>Java<span style="color:#5382a1">1</span></div>
-        <div class="skill-bar" data-level="1" data-color="#5382a1"></div>
-        <div class="skill-desc">Javaは構文と概念はわかるくらい。いろいろな本でコード例で出ることが多く、本で見る機会が多いです</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.5s">
-        <div class="skill-label"><i class="devicon-php-plain colored"></i>PHP<span style="color:#777bb4">4</span></div>
-        <div class="skill-bar" data-level="4" data-color="#777bb4"></div>
-        <div class="skill-desc">インターンでSymfonyを使用したWebアプリ開発経験があります。Laravelなどにも対応できます。</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.55s">
-        <div class="skill-label"><i class="fa-solid fa-sitemap"></i>アプリケーションアーキテクチャ<span style="color:#fbbf24">3</span></div>
-        <div class="skill-bar" data-level="3" data-color="#fbbf24"></div>
-        <div class="skill-desc">ほとんど独学ですが、クリーン・オニオンアーキテクチャの概念を理解し、実装に活用できます。</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.6s">
-        <div class="skill-label"><i class="devicon-react-original colored"></i>React<span style="color:#61dafb">3</span></div>
-        <div class="skill-bar" data-level="3" data-color="#61dafb"></div>
-        <div class="skill-desc">独学でやったり学習サイトで触ったり</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.7s">
-        <div class="skill-label"><i class="devicon-docker-plain colored"></i>Docker<span style="color:#2496ed">2</span></div>
-        <div class="skill-bar" data-level="2" data-color="#2496ed"></div>
-        <div class="skill-desc">開発コンテナの利用経験があります。Docker Composeで簡単な環境を構築できます。</div>
-      </div>
-      <div class="skill-card reveal" style="transition-delay:.75s">
-        <div class="skill-label"><i class="fa-solid fa-ellipsis-h"></i>その他<span style="color:#94a3b8">3</span></div>
-        <div class="skill-bar" data-level="3" data-color="#94a3b8"></div>
-        <div class="skill-desc">Gitはもちろん、色々な分野に手を出しています。</div>
+    <div class="skill-carousel" id="skillCarousel">
+      <div class="sc-track" id="scTrack">
+        <div class="skill-chip" style="--c:#a78bfa"><i class="fa-solid fa-shield-halved" style="color:#a78bfa"></i><span class="sc-name">Security</span><span class="sc-level" style="color:#a78bfa">lv.4</span><span class="sc-desc">情報安全確保支援士試験合格。設計段階からセキュリティを組み込む。</span></div>
+        <div class="skill-chip" style="--c:#06b6d4"><i class="devicon-go-plain colored"></i><span class="sc-name">Go</span><span class="sc-level" style="color:#06b6d4">lv.4</span><span class="sc-desc">一番好き。Webアプリ・ソフトウェアルーター等の個人開発で活用。</span></div>
+        <div class="skill-chip" style="--c:#777bb4"><i class="devicon-php-plain colored"></i><span class="sc-name">PHP</span><span class="sc-level" style="color:#777bb4">lv.3</span><span class="sc-desc">インターンでSymfony使用したWebアプリ開発経験あり。</span></div>
+        <div class="skill-chip" style="--c:#3178c6"><i class="devicon-typescript-plain colored"></i><span class="sc-name">TypeScript</span><span class="sc-level" style="color:#3178c6">lv.3</span><span class="sc-desc">型安全を武器に。フロントエンドで実務利用。</span></div>
+        <div class="skill-chip" style="--c:#f59e0b"><i class="devicon-python-plain colored"></i><span class="sc-name">Python</span><span class="sc-level" style="color:#f59e0b">lv.3</span><span class="sc-desc">FastAPIでのAPI開発・データ処理に使用。</span></div>
+        <div class="skill-chip" style="--c:#0ea5e9"><i class="devicon-react-original colored"></i><span class="sc-name">React</span><span class="sc-level" style="color:#0ea5e9">lv.3</span><span class="sc-desc">独学・学習サイトで習得。TypeScriptと組み合わせて使用。</span></div>
+        <div class="skill-chip" style="--c:#fb923c"><i class="devicon-html5-plain colored"></i><span class="sc-name">HTML / CSS</span><span class="sc-level" style="color:#fb923c">lv.3</span><span class="sc-desc">業務でも使用。フレームワーク・バニラ両対応。</span></div>
+        <div class="skill-chip" style="--c:#d97706"><i class="fa-solid fa-sitemap" style="color:#d97706"></i><span class="sc-name">Architecture</span><span class="sc-level" style="color:#d97706">lv.3</span><span class="sc-desc">クリーン・オニオンアーキテクチャを独学で習得し実装に活用。</span></div>
+        <div class="skill-chip" style="--c:#059669"><i class="fa-solid fa-network-wired" style="color:#059669"></i><span class="sc-name">Network</span><span class="sc-level" style="color:#059669">lv.2</span><span class="sc-desc">TCP/IP・ARP・ICMPをスクラッチ実装した経験あり。</span></div>
+        <div class="skill-chip" style="--c:#2496ed"><i class="devicon-docker-plain colored"></i><span class="sc-name">Docker</span><span class="sc-level" style="color:#2496ed">lv.2</span><span class="sc-desc">開発コンテナ・Docker Composeで環境構築。</span></div>
+        <div class="skill-chip" style="--c:#4a6fa5"><i class="devicon-cplusplus-plain colored"></i><span class="sc-name">C++</span><span class="sc-level" style="color:#4a6fa5">lv.2</span><span class="sc-desc">組み込み系。音声出力・制御プログラムを受注開発。</span></div>
+        <div class="skill-chip" style="--c:#9b59b6"><i class="devicon-csharp-plain colored"></i><span class="sc-name">C#</span><span class="sc-level" style="color:#9b59b6">lv.2</span><span class="sc-desc">Unity開発で使用。</span></div>
+        <div class="skill-chip" style="--c:#3b82f6"><i class="fa-solid fa-mobile-screen" style="color:#3b82f6"></i><span class="sc-name">MDM / Intune</span><span class="sc-level" style="color:#3b82f6">lv.1</span><span class="sc-desc">モバイルデバイス管理の概念と運用知識あり。</span></div>
       </div>
     </div>
   </section>
@@ -232,7 +186,25 @@
           <div class="work-tags"><span class="wtag">Go</span><span class="wtag">Backend</span><span class="wtag">Network</span></div>
           <a class="work-link" href="https://github.com/Reeeid/Go_backend_playgrounds" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
-    </div>
+      </div>
+      <div class="work-card reveal" style="transition-delay:.4s">
+        <div class="work-thumb t2"><i class="fa-solid fa-network-wired"></i></div>
+        <div class="work-info">
+          <h3>Go Software Router</h3>
+          <p>Goで実装したソフトウェアルーター。TCP/IP・ARP・ICMPをスクラッチで実装。低レイヤのネットワーク処理を学ぶために開発。</p>
+          <div class="work-tags"><span class="wtag">Go</span><span class="wtag">Network</span><span class="wtag">TCP/IP</span><span class="wtag">ARP</span></div>
+          <span class="work-link" style="color:var(--text-muted)"><i class="fa-solid fa-lock"></i> Private</span>
+        </div>
+      </div>
+      <div class="work-card reveal" style="transition-delay:.5s">
+        <div class="work-thumb t3"><i class="fa-brands fa-github"></i></div>
+        <div class="work-info">
+          <h3>その他の制作物</h3>
+          <p>パブリックなリポジトリはGitHubで確認できます。</p>
+          <div class="work-tags"><span class="wtag">GitHub</span></div>
+          <a class="work-link" href="https://github.com/Reeeid?tab=repositories" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
     </div>
   </section>
 
