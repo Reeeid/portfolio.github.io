@@ -129,7 +129,7 @@
     <div class="skill-carousel" id="skillCarousel">
       <div class="sc-track" id="scTrack">
         <div class="skill-chip" style="--c:#a78bfa"><i class="fa-solid fa-shield-halved" style="color:#a78bfa"></i><span class="sc-name">Security</span><span class="sc-level" style="color:#a78bfa">lv.4</span><span class="sc-desc">情報安全確保支援士試験合格。設計段階からセキュリティを組み込む。</span></div>
-        <div class="skill-chip" style="--c:#06b6d4"><i class="devicon-go-plain colored"></i><span class="sc-name">Go</span><span class="sc-level" style="color:#06b6d4">lv.4</span><span class="sc-desc">一番好き。Webアプリ・ソフトウェアルーター等の個人開発で活用。</span></div>
+        <div class="skill-chip" style="--c:#06b6d4"><i class="devicon-go-plain colored"></i><span class="sc-name">Go</span><span class="sc-level" style="color:#06b6d4">lv.4</span><span class="sc-desc">一番好き。FoodLikeのAPI・ソフトウェアルーター等の個人開発で活用。</span></div>
         <div class="skill-chip" style="--c:#777bb4"><i class="devicon-php-plain colored"></i><span class="sc-name">PHP</span><span class="sc-level" style="color:#777bb4">lv.3</span><span class="sc-desc">インターンでSymfony使用したWebアプリ開発経験あり。</span></div>
         <div class="skill-chip" style="--c:#3178c6"><i class="devicon-typescript-plain colored"></i><span class="sc-name">TypeScript</span><span class="sc-level" style="color:#3178c6">lv.3</span><span class="sc-desc">型安全を武器に。フロントエンドで実務利用。</span></div>
         <div class="skill-chip" style="--c:#f59e0b"><i class="devicon-python-plain colored"></i><span class="sc-name">Python</span><span class="sc-level" style="color:#f59e0b">lv.3</span><span class="sc-desc">FastAPIでのAPI開発・データ処理に使用。</span></div>
@@ -140,6 +140,7 @@
         <div class="skill-chip" style="--c:#2496ed"><i class="devicon-docker-plain colored"></i><span class="sc-name">Docker</span><span class="sc-level" style="color:#2496ed">lv.2</span><span class="sc-desc">開発コンテナ・Docker Composeで環境構築。</span></div>
         <div class="skill-chip" style="--c:#4a6fa5"><i class="devicon-cplusplus-plain colored"></i><span class="sc-name">C++</span><span class="sc-level" style="color:#4a6fa5">lv.2</span><span class="sc-desc">組み込み系。音声出力・制御プログラムを受注開発。</span></div>
         <div class="skill-chip" style="--c:#9b59b6"><i class="devicon-csharp-plain colored"></i><span class="sc-name">C#</span><span class="sc-level" style="color:#9b59b6">lv.2</span><span class="sc-desc">Unity開発で使用。</span></div>
+        <div class="skill-chip" style="--c:#0175c2"><i class="devicon-dart-plain colored"></i><span class="sc-name">Dart / Flutter</span><span class="sc-level" style="color:#0175c2">lv.2</span><span class="sc-desc">Flutter Webでアプリを作成・デプロイ。チーム開発でフロントエンドを担当。</span></div>
         <div class="skill-chip" style="--c:#3b82f6"><i class="fa-solid fa-mobile-screen" style="color:#3b82f6"></i><span class="sc-name">MDM / Intune</span><span class="sc-level" style="color:#3b82f6">lv.1</span><span class="sc-desc">モバイルデバイス管理の概念と運用知識あり。</span></div>
       </div>
     </div>
@@ -151,22 +152,39 @@
       <div class="sec-heading">制作物</div>
     </div>
     <div class="works-grid">
+      <div class="work-card reveal is-featured">
+        <div class="work-thumb t2"><i class="fa-solid fa-utensils"></i></div>
+        <div class="work-info">
+          <span class="work-badge">pick up</span>
+          <h3>FoodLike</h3>
+          <p>グループ全員の「苦手なもの」を本人以外に明かさないまま、みんなが食べられる外食先を提案するアプリ。苦手情報を個人と紐づかない制約集合に集約し、AIの生成文からも品目名を伏せる検閲層を実装。クリーンアーキテクチャ＋ヘキサゴナルで設計。</p>
+          <div class="work-tags"><span class="wtag">Go</span><span class="wtag">Gin</span><span class="wtag">Next.js</span><span class="wtag">TypeScript</span><span class="wtag">Firebase Auth</span><span class="wtag">TiDB</span><span class="wtag">Cloud Run</span><span class="wtag">Gemini</span></div>
+          <div class="work-links">
+            <a class="work-link primary" href="https://food-like.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> デモ</a>
+            <a class="work-link" href="https://github.com/Reeeid/FoodLike" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
       <div class="work-card reveal">
         <div class="work-thumb t1"><i class="fa-solid fa-tree"></i></div>
         <div class="work-info">
           <h3>GROWTREE</h3>
           <p>スキル診断・プログラミング学習支援ツール(バックエンド・認証部分を作成)</p>
           <div class="work-tags"><span class="wtag">Python</span><span class="wtag">FastAPI</span><span class="wtag">React</span><span class="wtag">TypeScript</span><span class="wtag">Oauth2</span></div>
-          <a class="work-link" href="https://github.com/kc3hack/2026_team29" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          <div class="work-links">
+            <a class="work-link" href="https://github.com/kc3hack/2026_team29" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
         </div>
       </div>
       <div class="work-card reveal" style="transition-delay:.1s">
-        <div class="work-thumb t2"><i class="fa-regular fa-face-grin-squint-tears"></i></div>
+        <div class="work-thumb t2"><i class="fa-solid fa-network-wired"></i></div>
         <div class="work-info">
-          <h3>HTML to EMOJI</h3>
-          <p>HTMLを絵文字に変換する拡張機能 一番古いコードでコミット忘れで未完成ですが戒めのために残します</p>
-          <div class="work-tags"><span class="wtag">Go</span><span class="wtag">JavaScript</span><span class="wtag">LLMstudio</span></div>
-          <a class="work-link" href="https://github.com/Reeeid/Emoji-html" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          <h3>Go Software Router</h3>
+          <p>Goで実装したソフトウェアルーター。TCP/IP・ARP・ICMPをスクラッチで実装。低レイヤのネットワーク処理を学ぶために開発。</p>
+          <div class="work-tags"><span class="wtag">Go</span><span class="wtag">Network</span><span class="wtag">TCP/IP</span><span class="wtag">ARP</span></div>
+          <div class="work-links">
+            <a class="work-link" href="https://github.com/Reeeid/go-software-router" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
         </div>
       </div>
       <div class="work-card reveal" style="transition-delay:.2s">
@@ -175,34 +193,97 @@
           <h3>TODOテトリス</h3>
           <p>Reactで作成したTODOアプリ</p>
           <div class="work-tags"><span class="wtag">React</span><span class="wtag">TypeScript</span><span class="wtag">Vercel</span><span class="wtag">Go</span></div>
-          <a class="work-link" href="https://github.com/Reeeid/TodoTetris" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          <div class="work-links">
+            <a class="work-link" href="https://github.com/Reeeid/TodoTetris" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
         </div>
       </div>
       <div class="work-card reveal" style="transition-delay:.3s">
         <div class="work-thumb t1"><i class="fa-brands fa-golang"></i></div>
         <div class="work-info">
           <h3>Go playGround</h3>
-          <p>Goで遊ぶためのリポジトリ。主にバックエンドでCQRS、ES、GraphQLとかの検証用将来的にprivateで作ってるソフトウェアルーターとかをこちらに移行させたい。（リポ名がよろしくない）</p>
+          <p>Goで遊ぶためのリポジトリ。主にバックエンドでCQRS、ES、GraphQLとかの検証用。（リポ名がよろしくない）</p>
           <div class="work-tags"><span class="wtag">Go</span><span class="wtag">Backend</span><span class="wtag">Network</span></div>
-          <a class="work-link" href="https://github.com/Reeeid/Go_backend_playgrounds" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          <div class="work-links">
+            <a class="work-link" href="https://github.com/Reeeid/Go_backend_playgrounds" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
         </div>
       </div>
       <div class="work-card reveal" style="transition-delay:.4s">
-        <div class="work-thumb t2"><i class="fa-solid fa-network-wired"></i></div>
+        <div class="work-thumb t3"><i class="fa-solid fa-mobile-screen-button"></i></div>
         <div class="work-info">
-          <h3>Go Software Router</h3>
-          <p>Goで実装したソフトウェアルーター。TCP/IP・ARP・ICMPをスクラッチで実装。低レイヤのネットワーク処理を学ぶために開発。</p>
-          <div class="work-tags"><span class="wtag">Go</span><span class="wtag">Network</span><span class="wtag">TCP/IP</span><span class="wtag">ARP</span></div>
-          <span class="work-link" style="color:var(--text-muted)"><i class="fa-solid fa-lock"></i> Private</span>
+          <h3>買いマスター</h3>
+          <p>KITBUILD 2026 のチーム開発で作った、より安く買い物するための支援アプリ。店舗・カテゴリ・商品から探して、お得に買い物できるようにします。フロントエンドをFlutterで担当し、買い物画面の実装と二重登録防止などの不具合修正を行いました。</p>
+          <div class="work-tags"><span class="wtag">Flutter</span><span class="wtag">Dart</span><span class="wtag">Frontend</span><span class="wtag">Team</span></div>
+          <div class="work-links">
+            <a class="work-link" href="https://github.com/Reeeid/KITBUILD202606_teamB" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
         </div>
       </div>
       <div class="work-card reveal" style="transition-delay:.5s">
+        <div class="work-thumb t1"><i class="fa-solid fa-flag"></i></div>
+        <div class="work-info">
+          <h3>CTF</h3>
+          <p>趣味でCTFに取り組んでいます。解いた問題のメモやスクリプトを蓄積中。</p>
+          <div class="work-tags"><span class="wtag">Security</span><span class="wtag">CTF</span></div>
+          <div class="work-links">
+            <span class="work-link is-private"><i class="fa-solid fa-lock"></i> Private</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-thumb t2"><i class="fa-solid fa-fish"></i></div>
+        <div class="work-info">
+          <h3>ゲーム開発</h3>
+          <p>ゼミでUnityを使ったゲーム開発に取り組んでいます。</p>
+          <div class="work-tags"><span class="wtag">C#</span><span class="wtag">Unity</span></div>
+          <div class="work-links">
+            <span class="work-link is-private"><i class="fa-solid fa-lock"></i> Private</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card reveal" style="transition-delay:.1s">
+        <div class="work-thumb t1"><i class="fa-solid fa-power-off"></i></div>
+        <div class="work-info">
+          <h3>リモート起動ツール</h3>
+          <p>Pythonで自作した、ネットワーク越しにPCを起動するための個人用ツール。</p>
+          <div class="work-tags"><span class="wtag">Python</span><span class="wtag">Network</span></div>
+          <div class="work-links">
+            <span class="work-link is-private"><i class="fa-solid fa-lock"></i> Private</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card reveal" style="transition-delay:.3s">
+        <div class="work-thumb t2"><i class="fa-brands fa-discord"></i></div>
+        <div class="work-info">
+          <h3>Discord Bot</h3>
+          <p>Pythonで作成した個人用のDiscord Bot。</p>
+          <div class="work-tags"><span class="wtag">Python</span><span class="wtag">discord.py</span></div>
+          <div class="work-links">
+            <span class="work-link is-private"><i class="fa-solid fa-lock"></i> Private</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card reveal" style="transition-delay:.4s">
+        <div class="work-thumb t2"><i class="fa-regular fa-face-grin-squint-tears"></i></div>
+        <div class="work-info">
+          <h3>HTML to EMOJI</h3>
+          <p>HTMLを絵文字に変換する拡張機能 一番古いコードでコミット忘れで未完成ですが戒めのために残します</p>
+          <div class="work-tags"><span class="wtag">Go</span><span class="wtag">JavaScript</span><span class="wtag">LLMstudio</span></div>
+          <div class="work-links">
+            <a class="work-link" href="https://github.com/Reeeid/Emoji-html" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div class="work-card reveal" style="transition-delay:.6s">
         <div class="work-thumb t3"><i class="fa-brands fa-github"></i></div>
         <div class="work-info">
           <h3>その他の制作物</h3>
-          <p>パブリックなリポジトリはGitHubで確認できます。</p>
+          <p>学習用リポジトリや練習コードを含め、パブリックなものはGitHubで確認できます。</p>
           <div class="work-tags"><span class="wtag">GitHub</span></div>
-          <a class="work-link" href="https://github.com/Reeeid?tab=repositories" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          <div class="work-links">
+            <a class="work-link" href="https://github.com/Reeeid?tab=repositories" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
         </div>
       </div>
     </div>
