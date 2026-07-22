@@ -499,7 +499,7 @@ body {
   gap: 16px;
   max-width: 720px;
   margin: 0 auto;
-  align-items: start;
+  align-items: stretch;
 }
 .works-grid .work-card {
   display: flex;
