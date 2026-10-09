@@ -1,92 +1,72 @@
+import { reduced } from './motion.js';
+
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const MAX_LEVEL = 4;
+const WIDTH = 132;
+
+// Wavy line from 0 to `end`, as used by the M3 Expressive progress indicator
+function wavePath(end) {
+  let d = 'M2 7';
+  for (let x = 2; x <= end; x += 2) d += `L${x} ${(7 + 2.6 * Math.sin((x - 2) / 3.6)).toFixed(2)}`;
+  return d;
+}
+
 export function initSkills() {
-  const carousel = document.getElementById('skillCarousel');
-  const track    = document.getElementById('scTrack');
-  if (!carousel || !track) return;
+  // Level meters
+  document.querySelectorAll('.skill-chip[data-level]').forEach(chip => {
+    const level = Math.max(0, Math.min(MAX_LEVEL, Number(chip.dataset.level)));
+    const end = 2 + ((WIDTH - 4) * level) / MAX_LEVEL;
 
-  // Duplicate chips for seamless infinite loop
-  Array.from(track.querySelectorAll('.skill-chip'))
-    .forEach(chip => track.appendChild(chip.cloneNode(true)));
+    const svg = document.createElementNS(SVG_NS, 'svg');
+    svg.setAttribute('class', 'sc-meter');
+    svg.setAttribute('viewBox', `0 0 ${WIDTH} 14`);
+    svg.setAttribute('aria-hidden', 'true');
 
-  // 3D tilt
-  function bindTilt(chip) {
-    chip.addEventListener('mouseenter', () => {
-      chip.style.transition = 'border-color .15s, box-shadow .15s, transform .1s ease';
+    const track = document.createElementNS(SVG_NS, 'path');
+    track.setAttribute('class', 'sc-meter-track');
+    track.setAttribute('d', `M${Math.min(end + 6, WIDTH - 2)} 7H${WIDTH - 2}`);
+    const active = document.createElementNS(SVG_NS, 'path');
+    active.setAttribute('class', 'sc-meter-active');
+    active.setAttribute('d', wavePath(end));
+    svg.append(track, active);
+    chip.querySelector('.sc-level')?.after(svg);
+
+    if (reduced) return;
+    const length = active.getTotalLength();
+    active.style.strokeDasharray = length;
+    active.style.strokeDashoffset = length;
+    const draw = () => { active.style.strokeDashoffset = 0; };
+    if (chip.classList.contains('is-in')) draw();
+    else chip.addEventListener('reveal', draw, { once: true });
+  });
+
+  // Works filter
+  const filters = document.getElementById('workFilters');
+  const grid = document.getElementById('worksGrid');
+  if (!filters || !grid) return;
+  const chips = Array.from(filters.querySelectorAll('.chip'));
+  const cards = Array.from(grid.querySelectorAll('.work-card'));
+  const count = document.getElementById('workCount');
+
+  filters.addEventListener('click', e => {
+    const chip = e.target.closest('.chip');
+    if (!chip) return;
+    const filter = chip.dataset.filter;
+    chips.forEach(c => c.setAttribute('aria-pressed', c === chip));
+
+    let shown = 0;
+    cards.forEach(card => {
+      const cats = card.dataset.cat.split(' ');
+      const match = filter === 'all' || cats.includes(filter) || cats.includes('all');
+      card.hidden = !match;
+      if (!match) return;
+      card.style.setProperty('--i', shown++);
+      card.classList.add('is-in');
+      card.classList.remove('pop-in');
+      void card.offsetWidth;
+      card.classList.add('pop-in');
     });
-    chip.addEventListener('mousemove', e => {
-      const r = chip.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width  - 0.5;
-      const y = (e.clientY - r.top)  / r.height - 0.5;
-      chip.style.transform =
-        `perspective(500px) rotateY(${x * 22}deg) rotateX(${y * -22}deg) scale(1.06)`;
-    });
-    chip.addEventListener('mouseleave', () => {
-      chip.style.transition = 'border-color .15s, box-shadow .15s, transform .35s ease';
-      chip.style.transform = '';
-    });
-  }
-  track.querySelectorAll('.skill-chip').forEach(bindTilt);
-
-  // Auto-scroll state
-  const SPEED   = 0.55; // px per frame
-  let pos       = 0;    // current translateX (negative = left)
-  let halfW     = 0;
-  let isPaused  = false;
-  let isDragging = false;
-  let dragStartX = 0, dragStartPos = 0;
-
-  function normalize(p) {
-    if (halfW === 0) return p;
-    while (p < -halfW) p += halfW;
-    while (p >  0)     p -= halfW;
-    return p;
-  }
-
-  function applyTransform() {
-    track.style.transform = `translateX(${pos}px)`;
-  }
-
-  function tick() {
-    if (!isDragging && !isPaused) {
-      pos = normalize(pos - SPEED);
-      applyTransform();
-    }
-    requestAnimationFrame(tick);
-  }
-
-  // Pause on hover so 3D tilt can be used comfortably
-  carousel.addEventListener('mouseenter', () => { isPaused = true; });
-  carousel.addEventListener('mouseleave', () => { if (!isDragging) isPaused = false; });
-
-  // Drag to scrub
-  carousel.addEventListener('mousedown', e => {
-    isDragging  = true;
-    isPaused    = true;
-    dragStartX  = e.clientX;
-    dragStartPos = pos;
-    carousel.style.cursor = 'grabbing';
+    grid.classList.toggle('is-filtered', filter !== 'all');
+    if (count) count.textContent = `${shown} 件を表示`;
   });
-  window.addEventListener('mouseup', () => {
-    if (!isDragging) return;
-    isDragging = false;
-    carousel.style.cursor = 'grab';
-    pos = normalize(pos);
-    isPaused = false;
-  });
-  window.addEventListener('mousemove', e => {
-    if (!isDragging) return;
-    pos = normalize(dragStartPos + (e.clientX - dragStartX));
-    applyTransform();
-  });
-
-  // Start after layout is ready
-  requestAnimationFrame(() => {
-    halfW = track.offsetWidth / 2;
-    requestAnimationFrame(tick);
-  });
-
-  // Reveal for other .reveal elements
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 }
