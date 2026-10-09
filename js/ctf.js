@@ -17,7 +17,7 @@ export function initCTF() {
     'robots.txt':     null,   // fetched dynamically
     'package.json':   ['{ "name": "portfolio", "version": "1.0.0" }'],
     'css/':           ['main.css'],
-    'js/':            ['main.js', 'nav.js', 'skills.js', 'motion.js', 'theme-init.js', 'ctf.js'],
+    'js/':            ['main.js', 'hero.js', 'nav.js', 'skills.js', 'motion.js', 'theme-init.js', 'ctf.js'],
     'css/main.css':   ['~14kb of style. boring.'],
     'js/main.js':     ['entry point. nothing spicy.'],
     'js/ctf.js':      ["you're already inside it."],

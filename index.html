@@ -39,10 +39,11 @@
 </head>
 <body>
 <a class="skip-link" href="#main">本文へスキップ</a>
+<div class="scroll-wave" id="scrollWave" aria-hidden="true"></div>
 
 <div id="site">
-  <header class="hopbar" id="siteNav">
-    <div class="hopbar-inner">
+  <header class="app-bar" id="siteNav">
+    <div class="app-bar-inner">
       <a class="nav-logo" href="#top">Reeeid<span>.</span></a>
       <nav class="nav-links" id="navLinks" aria-label="メイン">
         <a href="#about">about</a>
@@ -51,115 +52,108 @@
         <a href="#works">works</a>
         <a href="#contact">contact</a>
       </nav>
-      <button class="nav-hamburger" id="navHamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="navLinks"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      <div class="bar-actions">
+        <button class="icon-btn ripple" id="paletteBtn" type="button" aria-label="テーマカラーを選ぶ" aria-expanded="false" aria-controls="paletteMenu"><i class="fa-solid fa-palette" aria-hidden="true"></i></button>
+        <button class="icon-btn ripple" id="themeBtn" type="button" aria-label="ライト／ダークを切り替える"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>
+        <button class="icon-btn ripple nav-hamburger" id="navHamburger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="navLinks"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      </div>
+      <div class="palette-menu" id="paletteMenu" role="group" aria-label="テーマカラー" hidden>
+        <button class="swatch" type="button" data-hue="220" style="--sw:220" aria-label="ゴーファーブルー"></button>
+        <button class="swatch" type="button" data-hue="295" style="--sw:295" aria-label="パープル"></button>
+        <button class="swatch" type="button" data-hue="165" style="--sw:165" aria-label="グリーン"></button>
+        <button class="swatch" type="button" data-hue="65" style="--sw:65" aria-label="オレンジ"></button>
+        <button class="swatch" type="button" data-hue="10" style="--sw:10" aria-label="ピンク"></button>
+      </div>
     </div>
   </header>
 
   <main id="main">
   <section class="hero" id="top">
-    <div class="container">
-      <div class="hero-grid">
-        <svg class="route-art" viewBox="0 0 200 120" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0 70 C70 70 60 30 130 30 S190 30 200 30"/>
-          <circle cx="0" cy="70" r="5"/><circle cx="200" cy="30" r="5"/>
-        </svg>
-        <div class="paper hero-paper" data-reveal>
-          <span class="pin pin-a"></span><span class="pin pin-b"></span>
-          <div class="paper-in">
-            <div class="doc-head"><span>ASSESSMENT REPORT</span><span class="stamp">PUBLIC</span><span class="doc-no">DOC 2026-10</span></div>
-            <h1>
-              <span class="c1">Business</span>
-              <span class="c2">Security</span>
-              <span class="c3">Technology</span>
-            </h1>
-            <p class="hero-sub">経営学部出身というバックグラウンドを活かし、ビジネス課題とIT実装の両方を理解した上で開発します。セキュリティ・バックエンド・フロントエンドまで一気通貫で対応。Goが一番好きです。</p>
-            <div class="hero-btns">
-              <a class="btn" href="#works"><i class="fa-solid fa-briefcase" aria-hidden="true"></i>制作物を見る</a>
-              <a class="btn btn-line" href="#activity"><i class="fa-solid fa-bolt" aria-hidden="true"></i>最近の活動</a>
-              <span class="status status-ok">AVAILABLE FOR WORK</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="host main-host" data-reveal>
-          <div class="host-top"><span class="led"></span>HOST ・ 対象</div>
-          <p class="main-host-name">reeeid</p>
-          <p class="main-host-sub">Business × IT Engineer</p>
-          <ul class="services">
-            <li class="services-head">稼働中のサービス</li>
-            <li><span class="led"></span>Security<small>lv.4</small></li>
-            <li><span class="led"></span>Go<small>lv.4</small></li>
-            <li><span class="led"></span>TypeScript<small>lv.3</small></li>
-            <li><span class="led"></span>Python<small>lv.3</small></li>
-            <li><span class="led"></span>PHP<small>lv.3</small></li>
-            <li><span class="led"></span>React<small>lv.3</small></li>
-            <li><span class="led led-off"></span>Kotlin<small>lv.2</small></li>
-            <li><span class="led led-off"></span>Rust<small>lv.1</small></li>
-          </ul>
+    <div class="container hero-grid">
+      <div class="hero-copy" data-stagger>
+        <div class="hero-tag" data-reveal><span class="dot"></span>available for work</div>
+        <h1 data-reveal>
+          <span class="c1">Business</span>
+          <span class="c2">Security</span>
+          <span class="c3">Technology</span>
+        </h1>
+        <p class="hero-sub" data-reveal>経営学部出身というバックグラウンドを活かし、ビジネス課題とIT実装の両方を理解した上で開発します。セキュリティ・バックエンド・フロントエンドまで一気通貫で対応。Goが一番好きです。</p>
+        <div class="hero-btns" data-reveal>
+          <a class="btn btn-filled ripple" href="#works"><i class="fa-solid fa-briefcase" aria-hidden="true"></i>制作物を見る</a>
+          <a class="btn btn-tonal ripple" href="#activity"><i class="fa-solid fa-bolt" aria-hidden="true"></i>最近の活動</a>
         </div>
       </div>
 
-      <ul class="metrics" data-stagger>
-        <li class="host metric" data-reveal>
-          <div class="host-top"><span class="led"></span>資格</div>
+      <div class="hero-stage" id="heroStage" aria-hidden="true">
+        <div class="shape s-a" data-shapes="cookie,clover,circle,squircle" data-depth="0.5">
+          <span class="shape-body"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+        </div>
+        <div class="shape s-b" data-shapes="pill,diamond,flower,circle" data-depth="0.9">
+          <span class="shape-body"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+        </div>
+        <div class="shape s-c" data-shapes="squircle,trefoil,burst,pill" data-depth="0.7">
+          <span class="shape-body"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+        </div>
+        <div class="shape s-d" data-shapes="flower,circle,cookie,diamond" data-depth="0.35">
+          <span class="shape-body"><i class="devicon-go-plain" aria-hidden="true"></i></span>
+        </div>
+        <div class="shape s-e" data-shapes="burst,clover,squircle,trefoil" data-depth="1.2">
+          <span class="shape-body"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <ul class="stats" data-stagger>
+        <li class="stat stat-primary" data-reveal>
           <strong><span data-count>4</span></strong>
-          <span class="metric-label">IPA 試験に合格</span>
-          <span class="metric-note">IP / FE / AP / SC</span>
+          <span class="stat-label">IPA 試験に合格</span>
+          <span class="stat-note">IP / FE / AP / SC</span>
         </li>
-        <li class="host metric" data-reveal>
-          <div class="host-top"><span class="led"></span>経験</div>
+        <li class="stat stat-secondary" data-reveal>
           <strong><span data-count>3</span></strong>
-          <span class="metric-label">社でインターン</span>
-          <span class="metric-note">Web 開発・実務を含む</span>
+          <span class="stat-label">社でインターン</span>
+          <span class="stat-note">Web 開発・実務を含む</span>
         </li>
-        <li class="host metric" data-reveal>
-          <div class="host-top"><span class="led"></span>OSS</div>
+        <li class="stat stat-tertiary" data-reveal>
           <strong><span data-count>2</span></strong>
-          <span class="metric-label">OSS への PR</span>
-          <span class="metric-note">echo にマージ・gin はレビュー中</span>
+          <span class="stat-label">OSS への PR</span>
+          <span class="stat-note">echo にマージ・gin はレビュー中</span>
         </li>
-        <li class="host metric" data-reveal>
-          <div class="host-top"><span class="led led-warn"></span>ゲーム</div>
+        <li class="stat stat-surface" data-reveal>
           <strong><span data-count>240</span></strong>
-          <span class="metric-label">人がマグロランをプレイ</span>
-          <span class="metric-note">オープンキャンパスにて</span>
+          <span class="stat-label">人がマグロランをプレイ</span>
+          <span class="stat-note">オープンキャンパスにて</span>
         </li>
       </ul>
     </div>
   </section>
 
-  <section class="section" id="about">
+  <section class="section section-alt" id="about">
     <div class="container">
       <div class="sec-header" data-reveal>
-        <span class="hop-label">HOP 01</span>
+        <div class="sec-eyebrow">about me</div>
         <h2 class="sec-heading">自己紹介</h2>
-        <span class="sec-rule"></span>
-        <span class="sec-eyebrow">PROFILE</span>
       </div>
-      <div class="paper about-paper" data-reveal>
-        <span class="pin pin-a"></span>
-        <div class="paper-in about-grid">
-          <div class="about-photo">
-            <img class="about-avatar" src="https://github.com/Reeeid.png" alt="プロフィール画像" width="160" height="160" loading="lazy" decoding="async">
-            <span class="about-photo-cap">対象者</span>
-          </div>
-          <div class="about-body">
-            <div class="doc-head"><span>対象の概要</span><span class="doc-no">SECTION 1</span></div>
-            <p class="axis-tagline">
-              <span class="at-biz">ビジネスの視点</span>
-              <span class="at-x">×</span>
-              <span class="at-eng">エンジニアリング</span>
-            </p>
-            <p class="about-text">
-              イギリスと日本のハーフです。経営学部・経営学科の文系出身ながらエンジニアをやっています。基本情報・応用情報・情報処理安全確保支援士に合格し、バックエンドを中心に、セキュリティ・フロントエンド・ネットワークまで幅広く触っています。とにかく技術系のことが好きで、最近は低レイヤと Linux に潜りながら OS を自作中。今後の目標は IT ストラテジストと AWS 認定資格の取得です。
-            </p>
-            <div class="about-pills">
-              <span class="pill">セキュリティ</span>
-              <span class="pill">バックエンド</span>
-              <span class="pill">ネットワーク（低レイヤ）</span>
-              <span class="pill">フロントエンド</span>
-              <span class="pill">Web技術</span>
-            </div>
+      <div class="about-grid">
+        <div class="about-avatar-wrap" data-reveal>
+          <img class="about-avatar" src="https://github.com/Reeeid.png" alt="プロフィール画像" width="160" height="160">
+        </div>
+        <div class="about-body" data-reveal>
+          <p class="axis-tagline">
+            <span class="at-biz">ビジネスの視点</span>
+            <span class="at-x">×</span>
+            <span class="at-eng">エンジニアリング</span>
+          </p>
+          <p class="about-text">
+            イギリスと日本のハーフです。経営学部・経営学科の文系出身ながらエンジニアをやっています。基本情報・応用情報・情報処理安全確保支援士に合格し、バックエンドを中心に、セキュリティ・フロントエンド・ネットワークまで幅広く触っています。とにかく技術系のことが好きで、最近は低レイヤと Linux に潜りながら OS を自作中。今後の目標は IT ストラテジストと AWS 認定資格の取得です。
+          </p>
+          <div class="about-pills">
+            <span class="pill">セキュリティ</span>
+            <span class="pill">バックエンド</span>
+            <span class="pill">ネットワーク（低レイヤ）</span>
+            <span class="pill">フロントエンド</span>
+            <span class="pill">Web技術</span>
           </div>
         </div>
       </div>
@@ -169,149 +163,187 @@
   <section class="section" id="activity">
     <div class="container">
       <div class="sec-header" data-reveal>
-        <span class="hop-label">HOP 02</span>
+        <div class="sec-eyebrow">activity</div>
         <h2 class="sec-heading">最近の活動</h2>
-        <span class="sec-rule"></span>
-        <span class="sec-eyebrow">FINDINGS</span>
+        <p class="sec-desc">コードを書く以外に、OSS への貢献、記事の執筆、勉強会の運営もやっています。</p>
       </div>
 
-      <div class="activity-grid">
-        <div class="paper findings" data-reveal>
-          <span class="pin pin-a"></span><span class="pin pin-b"></span>
-          <div class="paper-in">
-            <div class="doc-head"><span>所見一覧</span><span class="doc-no">11 件</span></div>
+      <div class="bento">
+        <article class="panel span-7" data-reveal>
+          <header class="panel-head">
+            <span class="panel-icon pi-primary"><i class="fa-solid fa-code-pull-request" aria-hidden="true"></i></span>
+            <h3>OSS コントリビューション</h3>
+          </header>
+          <ul class="m-list">
+            <li>
+              <a class="m-item ripple" href="https://github.com/labstack/echo/pull/3067" target="_blank" rel="noopener noreferrer">
+                <span class="m-lead"><i class="devicon-go-plain" aria-hidden="true"></i></span>
+                <span class="m-body">
+                  <span class="m-title">labstack/echo #3067</span>
+                  <span class="m-text">CSRF ミドルウェアで、TokenLookup の書き間違いがあると検証が警告なしに無効になる問題を修正。抽出器が 0 件のときは設定エラーを返すようにしました。</span>
+                  <span class="m-meta">2026.08</span>
+                </span>
+                <span class="badge badge-ok"><i class="fa-solid fa-code-merge" aria-hidden="true"></i>Merged</span>
+              </a>
+            </li>
+            <li>
+              <a class="m-item ripple" href="https://github.com/gin-gonic/gin/pull/4855" target="_blank" rel="noopener noreferrer">
+                <span class="m-lead"><i class="devicon-go-plain" aria-hidden="true"></i></span>
+                <span class="m-body">
+                  <span class="m-title">gin-gonic/gin #4855</span>
+                  <span class="m-text">unix socket 経由で転送ヘッダが無いとき、ClientIP() が文字列 "&lt;nil&gt;" を返す問題の修正と、godoc の追記。</span>
+                  <span class="m-meta">2026.09</span>
+                </span>
+                <span class="badge badge-wait"><i class="fa-regular fa-clock" aria-hidden="true"></i>In review</span>
+              </a>
+            </li>
+          </ul>
+        </article>
 
-            <h3 class="f-group">OSS コントリビューション</h3>
-            <div class="frow">
-              <span class="fid">F-01</span>
-              <div class="f-body">
-                <a class="f-title" href="https://github.com/labstack/echo/pull/3067" target="_blank" rel="noopener noreferrer">labstack/echo #3067<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-                <p>CSRF ミドルウェアで、TokenLookup の書き間違いがあると検証が警告なしに無効になる問題を修正。抽出器が 0 件のときは設定エラーを返すようにしました。</p>
-                <span class="f-meta">2026.08</span>
-              </div>
-              <span class="status status-ok">MERGED</span>
-            </div>
-            <div class="frow">
-              <span class="fid">F-02</span>
-              <div class="f-body">
-                <a class="f-title" href="https://github.com/gin-gonic/gin/pull/4855" target="_blank" rel="noopener noreferrer">gin-gonic/gin #4855<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-                <p>unix socket 経由で転送ヘッダが無いとき、ClientIP() が文字列 "&lt;nil&gt;" を返す問題の修正と、godoc の追記。</p>
-                <span class="f-meta">2026.09</span>
-              </div>
-              <span class="status status-wait">IN REVIEW</span>
-            </div>
-
-            <h3 class="f-group">執筆</h3>
-            <div class="frow">
-              <span class="fid">F-03</span>
-              <div class="f-body">
-                <a class="f-title" href="https://qiita.com/Reeeid/items/e24382b8d00b851d10ae" target="_blank" rel="noopener noreferrer">goroutine はどのタイミングで「並行」から「並列」に変わるのか<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-                <span class="f-meta">Qiita ・ 2026.09</span>
-              </div>
-              <span class="status">ARTICLE</span>
-            </div>
-            <div class="frow">
-              <span class="fid">F-04</span>
-              <div class="f-body">
-                <a class="f-title" href="https://qiita.com/Reeeid/items/4bac10081808f3290f71" target="_blank" rel="noopener noreferrer">文系から情報処理安全確保支援士試験に合格するまでにやったこと<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-                <span class="f-meta">Qiita ・ 2026.08</span>
-              </div>
-              <span class="status">ARTICLE</span>
-            </div>
-
-            <h3 class="f-group">経験</h3>
-            <div class="frow">
-              <span class="fid">F-05</span>
-              <div class="f-body">
-                <span class="f-title">開発インターン 3社</span>
-                <p>Web 開発を中心に参加し、実務のタスクも担当しました。</p>
-              </div>
-              <span class="status status-ok">VERIFIED</span>
-            </div>
-            <div class="frow">
-              <span class="fid">F-06</span>
-              <div class="f-body">
-                <span class="f-title">Web アプリ開発の実務</span>
-                <p>インターン先で PHP / Symfony を使った Web アプリを開発。</p>
-              </div>
-              <span class="status status-ok">VERIFIED</span>
-            </div>
-            <div class="frow">
-              <span class="fid">F-07</span>
-              <div class="f-body">
-                <span class="f-title">組み込み開発（家族からの依頼）</span>
-                <p>C++ で音声出力・制御プログラムを開発。</p>
-              </div>
-              <span class="status status-ok">VERIFIED</span>
-            </div>
-
-            <h3 class="f-group">コミュニティ・イベント</h3>
-            <div class="frow">
-              <span class="fid">F-08</span>
-              <div class="f-body">
-                <span class="f-title">資格勉強会を主催</span>
-                <p>資格取得に向けた勉強会を企画・運営しています。</p>
-              </div>
-              <span class="status status-ok">VERIFIED</span>
-            </div>
-            <div class="frow">
-              <span class="fid">F-09</span>
-              <div class="f-body">
-                <a class="f-title" href="#ctf">CTF に参加</a>
-                <p>趣味で取り組み、解いた問題のメモとスクリプトを蓄積中。このサイトにも問題を隠してあります。</p>
-              </div>
-              <span class="status status-wait">ONGOING</span>
-            </div>
-            <div class="frow">
-              <span class="fid">F-10</span>
-              <div class="f-body">
-                <span class="f-title">オープンキャンパスでゲームを展示</span>
-                <p>ゼミで開発中の「マグロラン」を 240 人に遊んでもらいました。</p>
-              </div>
-              <span class="status status-ok">VERIFIED</span>
-            </div>
-            <div class="frow">
-              <span class="fid">F-11</span>
-              <div class="f-body">
-                <span class="f-title">KC3Hack 2026 / KITBUILD 2026</span>
-                <p>チーム開発で、バックエンドと認証（GROWTREE）、Flutter のフロントエンド（買いマスター）を担当。</p>
-              </div>
-              <span class="status status-ok">VERIFIED</span>
-            </div>
+        <article class="panel panel-now span-5" data-reveal>
+          <header class="panel-head">
+            <span class="morph-loader" data-morph-loader aria-hidden="true"></span>
+            <h3>いま作っているもの</h3>
+          </header>
+          <p class="now-title">自作 OS</p>
+          <p class="now-text">低レイヤを理解するために、OS を自分で作っています。あわせて Linux と Rust も勉強中。</p>
+          <div class="about-pills">
+            <span class="pill">OS</span>
+            <span class="pill">低レイヤ</span>
+            <span class="pill">Linux</span>
+            <span class="pill">Rust</span>
           </div>
-        </div>
+        </article>
 
-        <div class="activity-side">
-          <article class="host side-host" data-reveal>
-            <div class="host-top"><span class="led led-warn"></span>BUILDING ・ いま作っているもの</div>
-            <p class="now-title">自作 OS</p>
-            <p class="now-text">低レイヤを理解するために、OS を自分で作っています。あわせて Linux と Rust も勉強中。</p>
-            <div class="ports">
-              <span>OS</span><span>低レイヤ</span><span>Linux</span><span>Rust</span>
-            </div>
-          </article>
+        <article class="panel span-5" data-reveal>
+          <header class="panel-head">
+            <span class="panel-icon pi-tertiary"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></span>
+            <h3>執筆</h3>
+          </header>
+          <ul class="m-list">
+            <li>
+              <a class="m-item ripple" href="https://qiita.com/Reeeid/items/e24382b8d00b851d10ae" target="_blank" rel="noopener noreferrer">
+                <span class="m-body">
+                  <span class="m-title">goroutine はどのタイミングで「並行」から「並列」に変わるのか</span>
+                  <span class="m-meta">Qiita ・ 2026.09</span>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square m-trail" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a class="m-item ripple" href="https://qiita.com/Reeeid/items/4bac10081808f3290f71" target="_blank" rel="noopener noreferrer">
+                <span class="m-body">
+                  <span class="m-title">文系から情報処理安全確保支援士試験に合格するまでにやったこと</span>
+                  <span class="m-meta">Qiita ・ 2026.08</span>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square m-trail" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </article>
 
-          <article class="host side-host" data-reveal>
-            <div class="host-top"><span class="led"></span>ROUTE ・ 資格</div>
-            <ol class="cert-route">
-              <li><span class="cert-date">2024.10</span><span class="cert-name">IT パスポート</span></li>
-              <li><span class="cert-date">2024.12</span><span class="cert-name">基本情報技術者試験（FE）</span></li>
-              <li><span class="cert-date">2025.04</span><span class="cert-name">応用情報技術者試験（AP）</span></li>
-              <li class="is-goal"><span class="cert-date">2025.10</span><span class="cert-name">情報処理安全確保支援士試験 合格（SC）</span></li>
-            </ol>
-          </article>
-        </div>
+        <article class="panel span-7" data-reveal>
+          <header class="panel-head">
+            <span class="panel-icon pi-secondary"><i class="fa-solid fa-building" aria-hidden="true"></i></span>
+            <h3>経験</h3>
+          </header>
+          <ul class="m-list">
+            <li>
+              <div class="m-item">
+                <span class="m-lead"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></span>
+                <span class="m-body">
+                  <span class="m-title">開発インターン 3社（社名非公開）</span>
+                  <span class="m-text">Web 開発を中心に参加。研修型だけでなく、実務のタスクも担当しました。</span>
+                </span>
+              </div>
+            </li>
+            <li>
+              <div class="m-item">
+                <span class="m-lead"><i class="devicon-php-plain" aria-hidden="true"></i></span>
+                <span class="m-body">
+                  <span class="m-title">Web アプリ開発の実務</span>
+                  <span class="m-text">インターン先で PHP / Symfony を使った Web アプリを開発。</span>
+                </span>
+              </div>
+            </li>
+            <li>
+              <div class="m-item">
+                <span class="m-lead"><i class="devicon-cplusplus-plain" aria-hidden="true"></i></span>
+                <span class="m-body">
+                  <span class="m-title">組み込み開発（家族からの依頼）</span>
+                  <span class="m-text">C++ で音声出力・制御プログラムを開発。</span>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article class="panel span-6" data-reveal>
+          <header class="panel-head">
+            <span class="panel-icon pi-primary"><i class="fa-solid fa-people-group" aria-hidden="true"></i></span>
+            <h3>コミュニティ・イベント</h3>
+          </header>
+          <ul class="m-list">
+            <li>
+              <div class="m-item">
+                <span class="m-lead"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></span>
+                <span class="m-body">
+                  <span class="m-title">資格勉強会を主催</span>
+                  <span class="m-text">資格取得に向けた勉強会を企画・運営しています。</span>
+                </span>
+              </div>
+            </li>
+            <li>
+              <a class="m-item ripple" href="#ctf">
+                <span class="m-lead"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
+                <span class="m-body">
+                  <span class="m-title">CTF に参加</span>
+                  <span class="m-text">趣味で取り組み、解いた問題のメモとスクリプトを蓄積中。このサイトにも問題を隠してあります。</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <div class="m-item">
+                <span class="m-lead"><i class="fa-solid fa-gamepad" aria-hidden="true"></i></span>
+                <span class="m-body">
+                  <span class="m-title">オープンキャンパスでゲームを展示</span>
+                  <span class="m-text">ゼミで開発中の「マグロラン」を 240 人に遊んでもらいました。</span>
+                </span>
+              </div>
+            </li>
+            <li>
+              <div class="m-item">
+                <span class="m-lead"><i class="fa-solid fa-people-arrows" aria-hidden="true"></i></span>
+                <span class="m-body">
+                  <span class="m-title">KC3Hack 2026 / KITBUILD 2026</span>
+                  <span class="m-text">チーム開発で、バックエンドと認証（GROWTREE）、Flutter のフロントエンド（買いマスター）を担当。</span>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article class="panel span-6" data-reveal>
+          <header class="panel-head">
+            <span class="panel-icon pi-tertiary"><i class="fa-solid fa-certificate" aria-hidden="true"></i></span>
+            <h3>資格</h3>
+          </header>
+          <ol class="cert-line">
+            <li><span class="cert-date">2025.10</span><span class="cert-name">情報処理安全確保支援士試験 合格（SC）</span></li>
+            <li><span class="cert-date">2025.04</span><span class="cert-name">応用情報技術者試験（AP）</span></li>
+            <li><span class="cert-date">2024.12</span><span class="cert-name">基本情報技術者試験（FE）</span></li>
+            <li><span class="cert-date">2024.10</span><span class="cert-name">IT パスポート</span></li>
+          </ol>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="skills">
+  <section class="section section-alt" id="skills">
     <div class="container">
       <div class="sec-header" data-reveal>
-        <span class="hop-label">HOP 03</span>
+        <div class="sec-eyebrow">skills</div>
         <h2 class="sec-heading">スキルセット</h2>
-        <span class="sec-rule"></span>
-        <span class="sec-eyebrow">SERVICES</span>
       </div>
       <div class="skill-legend" data-reveal>
         <span class="sl-item"><b>lv.1</b> 知識あり</span>
@@ -320,22 +352,22 @@
         <span class="sl-item"><b>lv.4</b> 深い理解・応用可能</span>
       </div>
       <div class="skill-grid" id="skillGrid" data-stagger>
-        <div class="host skill-chip" data-reveal style="--lv:4"><i class="fa-solid fa-shield-halved" style="color:#a78bfa"></i><span class="sc-name">Security</span><span class="sc-level">lv.4<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">情報処理安全確保支援士試験合格。設計段階からセキュリティを組み込む。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:4"><i class="devicon-go-plain colored"></i><span class="sc-name">Go</span><span class="sc-level">lv.4<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">一番好き。FoodLike の API、ソフトウェアルーター、echo / gin への PR で使用。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:3"><i class="devicon-php-plain colored"></i><span class="sc-name">PHP</span><span class="sc-level">lv.3<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">インターンでSymfony使用したWebアプリ開発経験あり。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:3"><i class="devicon-typescript-plain colored"></i><span class="sc-name">TypeScript</span><span class="sc-level">lv.3<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">型安全を武器に。フロントエンドで実務利用。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:3"><i class="devicon-python-plain colored"></i><span class="sc-name">Python</span><span class="sc-level">lv.3<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">FastAPIでのAPI開発・データ処理に使用。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:3"><i class="devicon-react-original colored"></i><span class="sc-name">React</span><span class="sc-level">lv.3<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">独学・学習サイトで習得。TypeScriptと組み合わせて使用。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:3"><i class="devicon-html5-plain colored"></i><span class="sc-name">HTML / CSS</span><span class="sc-level">lv.3<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">業務でも使用。フレームワーク・バニラ両対応。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:3"><i class="fa-solid fa-sitemap" style="color:#f0b34a"></i><span class="sc-name">Architecture</span><span class="sc-level">lv.3<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">クリーン・オニオンアーキテクチャを独学で習得し実装に活用。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:2"><i class="fa-solid fa-network-wired" style="color:#34d399"></i><span class="sc-name">Network</span><span class="sc-level">lv.2<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">TCP/IP・ARP・ICMPをスクラッチ実装した経験あり。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:2"><i class="devicon-docker-plain colored"></i><span class="sc-name">Docker</span><span class="sc-level">lv.2<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">開発コンテナ・Docker Composeで環境構築。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:2"><i class="devicon-cplusplus-plain" style="color:#6c9bd9"></i><span class="sc-name">C++</span><span class="sc-level">lv.2<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">組み込み系。家族の依頼で音声出力・制御プログラムを開発。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:2"><i class="devicon-csharp-plain" style="color:#b98be0"></i><span class="sc-name">C#</span><span class="sc-level">lv.2<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">ゼミの Unity ゲーム「マグロラン」の開発で使用。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:2"><i class="devicon-dart-plain colored"></i><span class="sc-name">Dart / Flutter</span><span class="sc-level">lv.2<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">Flutter Webでアプリを作成・デプロイ。チーム開発でフロントエンドを担当。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:2"><i class="devicon-kotlin-plain colored"></i><span class="sc-name">Kotlin</span><span class="sc-level">lv.2<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">インターンで使用。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:1"><i class="devicon-rust-original" style="color:#e08a5b"></i><span class="sc-name">Rust</span><span class="sc-level">lv.1<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">低レイヤの勉強とあわせて学習中。</span></div>
-        <div class="host skill-chip" data-reveal style="--lv:1"><i class="fa-solid fa-mobile-screen" style="color:#60a5fa"></i><span class="sc-name">MDM / Intune</span><span class="sc-level">lv.1<span class="sc-dots" aria-hidden="true"></span></span><span class="sc-desc">モバイルデバイス管理の概念と運用知識あり。</span></div>
+        <div class="skill-chip" data-level="4" data-reveal style="--c:#a78bfa"><i class="fa-solid fa-shield-halved" style="color:#a78bfa"></i><span class="sc-name">Security</span><span class="sc-level">lv.4</span><span class="sc-desc">情報処理安全確保支援士試験合格。設計段階からセキュリティを組み込む。</span></div>
+        <div class="skill-chip" data-level="4" data-reveal style="--c:#06b6d4"><i class="devicon-go-plain colored"></i><span class="sc-name">Go</span><span class="sc-level">lv.4</span><span class="sc-desc">一番好き。FoodLike の API、ソフトウェアルーター、echo / gin への PR で使用。</span></div>
+        <div class="skill-chip" data-level="3" data-reveal style="--c:#777bb4"><i class="devicon-php-plain colored"></i><span class="sc-name">PHP</span><span class="sc-level">lv.3</span><span class="sc-desc">インターンでSymfony使用したWebアプリ開発経験あり。</span></div>
+        <div class="skill-chip" data-level="3" data-reveal style="--c:#3178c6"><i class="devicon-typescript-plain colored"></i><span class="sc-name">TypeScript</span><span class="sc-level">lv.3</span><span class="sc-desc">型安全を武器に。フロントエンドで実務利用。</span></div>
+        <div class="skill-chip" data-level="3" data-reveal style="--c:#f59e0b"><i class="devicon-python-plain colored"></i><span class="sc-name">Python</span><span class="sc-level">lv.3</span><span class="sc-desc">FastAPIでのAPI開発・データ処理に使用。</span></div>
+        <div class="skill-chip" data-level="3" data-reveal style="--c:#0ea5e9"><i class="devicon-react-original colored"></i><span class="sc-name">React</span><span class="sc-level">lv.3</span><span class="sc-desc">独学・学習サイトで習得。TypeScriptと組み合わせて使用。</span></div>
+        <div class="skill-chip" data-level="3" data-reveal style="--c:#fb923c"><i class="devicon-html5-plain colored"></i><span class="sc-name">HTML / CSS</span><span class="sc-level">lv.3</span><span class="sc-desc">業務でも使用。フレームワーク・バニラ両対応。</span></div>
+        <div class="skill-chip" data-level="3" data-reveal style="--c:#d97706"><i class="fa-solid fa-sitemap" style="color:#d97706"></i><span class="sc-name">Architecture</span><span class="sc-level">lv.3</span><span class="sc-desc">クリーン・オニオンアーキテクチャを独学で習得し実装に活用。</span></div>
+        <div class="skill-chip" data-level="2" data-reveal style="--c:#059669"><i class="fa-solid fa-network-wired" style="color:#059669"></i><span class="sc-name">Network</span><span class="sc-level">lv.2</span><span class="sc-desc">TCP/IP・ARP・ICMPをスクラッチ実装した経験あり。</span></div>
+        <div class="skill-chip" data-level="2" data-reveal style="--c:#2496ed"><i class="devicon-docker-plain colored"></i><span class="sc-name">Docker</span><span class="sc-level">lv.2</span><span class="sc-desc">開発コンテナ・Docker Composeで環境構築。</span></div>
+        <div class="skill-chip" data-level="2" data-reveal style="--c:#4a6fa5"><i class="devicon-cplusplus-plain colored"></i><span class="sc-name">C++</span><span class="sc-level">lv.2</span><span class="sc-desc">組み込み系。家族の依頼で音声出力・制御プログラムを開発。</span></div>
+        <div class="skill-chip" data-level="2" data-reveal style="--c:#9b59b6"><i class="devicon-csharp-plain colored"></i><span class="sc-name">C#</span><span class="sc-level">lv.2</span><span class="sc-desc">ゼミの Unity ゲーム「マグロラン」の開発で使用。</span></div>
+        <div class="skill-chip" data-level="2" data-reveal style="--c:#0175c2"><i class="devicon-dart-plain colored"></i><span class="sc-name">Dart / Flutter</span><span class="sc-level">lv.2</span><span class="sc-desc">Flutter Webでアプリを作成・デプロイ。チーム開発でフロントエンドを担当。</span></div>
+        <div class="skill-chip" data-level="2" data-reveal style="--c:#7f52ff"><i class="devicon-kotlin-plain colored"></i><span class="sc-name">Kotlin</span><span class="sc-level">lv.2</span><span class="sc-desc">インターンで使用。</span></div>
+        <div class="skill-chip" data-level="1" data-reveal style="--c:#ce6b3b"><i class="devicon-rust-original" style="color:#ce6b3b"></i><span class="sc-name">Rust</span><span class="sc-level">lv.1</span><span class="sc-desc">低レイヤの勉強とあわせて学習中。</span></div>
+        <div class="skill-chip" data-level="1" data-reveal style="--c:#3b82f6"><i class="fa-solid fa-mobile-screen" style="color:#3b82f6"></i><span class="sc-name">MDM / Intune</span><span class="sc-level">lv.1</span><span class="sc-desc">モバイルデバイス管理の概念と運用知識あり。</span></div>
       </div>
     </div>
   </section>
@@ -343,154 +375,169 @@
   <section class="section" id="works">
     <div class="container">
       <div class="sec-header" data-reveal>
-        <span class="hop-label">HOP 04</span>
+        <div class="sec-eyebrow">works</div>
         <h2 class="sec-heading">制作物</h2>
-        <span class="sec-rule"></span>
-        <span class="sec-eyebrow">SEGMENT A</span>
       </div>
       <div class="filter-row" id="workFilters" role="group" aria-label="制作物の絞り込み" data-reveal>
-        <button class="chip" type="button" data-filter="all" aria-pressed="true">すべて</button>
-        <button class="chip" type="button" data-filter="go" aria-pressed="false">Go</button>
-        <button class="chip" type="button" data-filter="web" aria-pressed="false">Web</button>
-        <button class="chip" type="button" data-filter="team" aria-pressed="false">チーム開発</button>
-        <button class="chip" type="button" data-filter="net" aria-pressed="false">ネットワーク・セキュリティ</button>
-        <button class="chip" type="button" data-filter="tool" aria-pressed="false">ツール</button>
+        <button class="chip ripple" type="button" data-filter="all" aria-pressed="true"><i class="fa-solid fa-check" aria-hidden="true"></i>すべて</button>
+        <button class="chip ripple" type="button" data-filter="go" aria-pressed="false"><i class="fa-solid fa-check" aria-hidden="true"></i>Go</button>
+        <button class="chip ripple" type="button" data-filter="web" aria-pressed="false"><i class="fa-solid fa-check" aria-hidden="true"></i>Web</button>
+        <button class="chip ripple" type="button" data-filter="team" aria-pressed="false"><i class="fa-solid fa-check" aria-hidden="true"></i>チーム開発</button>
+        <button class="chip ripple" type="button" data-filter="net" aria-pressed="false"><i class="fa-solid fa-check" aria-hidden="true"></i>ネットワーク・セキュリティ</button>
+        <button class="chip ripple" type="button" data-filter="tool" aria-pressed="false"><i class="fa-solid fa-check" aria-hidden="true"></i>ツール</button>
       </div>
       <p class="sr-only" id="workCount" aria-live="polite"></p>
 
       <div class="works-grid" id="worksGrid">
-        <article class="host work-card is-featured" data-cat="go web" data-reveal>
-          <div class="host-top"><span class="led led-warn"></span>PICK UP<i class="fa-solid fa-utensils work-icon" aria-hidden="true"></i></div>
-          <h3>FoodLike</h3>
-          <p>グループ全員の「苦手なもの」を本人以外に明かさないまま、みんなが食べられる外食先を提案するアプリ。苦手情報を個人と紐づかない制約集合に集約し、AIの生成文からも品目名を伏せる検閲層を実装。クリーンアーキテクチャ＋ヘキサゴナルで設計。</p>
-          <div class="ports"><span>Go</span><span>Gin</span><span>Next.js</span><span>TypeScript</span><span>Firebase Auth</span><span>TiDB</span><span>Cloud Run</span><span>Gemini</span></div>
-          <div class="work-links">
-            <a class="work-link primary" href="https://food-like.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> デモ</a>
-            <a class="work-link" href="https://github.com/Reeeid/FoodLike" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+        <article class="work-card is-featured" data-cat="go web" data-reveal>
+          <div class="work-thumb t2"><span class="work-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span></div>
+          <div class="work-info">
+            <span class="work-badge">pick up</span>
+            <h3>FoodLike</h3>
+            <p>グループ全員の「苦手なもの」を本人以外に明かさないまま、みんなが食べられる外食先を提案するアプリ。苦手情報を個人と紐づかない制約集合に集約し、AIの生成文からも品目名を伏せる検閲層を実装。クリーンアーキテクチャ＋ヘキサゴナルで設計。</p>
+            <div class="work-tags"><span class="wtag">Go</span><span class="wtag">Gin</span><span class="wtag">Next.js</span><span class="wtag">TypeScript</span><span class="wtag">Firebase Auth</span><span class="wtag">TiDB</span><span class="wtag">Cloud Run</span><span class="wtag">Gemini</span></div>
+            <div class="work-links">
+              <a class="work-link primary ripple" href="https://food-like.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> デモ</a>
+              <a class="work-link ripple" href="https://github.com/Reeeid/FoodLike" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+            </div>
           </div>
         </article>
-        <article class="host work-card" data-cat="web team" data-reveal>
-          <div class="host-top"><span class="led"></span>TEAM<i class="fa-solid fa-tree work-icon" aria-hidden="true"></i></div>
-          <h3>GROWTREE</h3>
-          <p>KC3Hack 2026 で作ったスキル診断・プログラミング学習支援ツール。バックエンドを担当し、DB 設計（全6テーブル）、GitHub OAuth と ID ログインの認証フロー（JWT を httpOnly Cookie で管理）、ユーザー・クエストの API を実装しました。</p>
-          <div class="ports"><span>Python</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>OAuth2</span></div>
-          <div class="work-links">
-            <a class="work-link" href="https://github.com/kc3hack/2026_team29" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+        <article class="work-card" data-cat="web team" data-reveal>
+          <div class="work-thumb t1"><span class="work-icon"><i class="fa-solid fa-tree" aria-hidden="true"></i></span></div>
+          <div class="work-info">
+            <h3>GROWTREE</h3>
+            <p>KC3Hack 2026 で作ったスキル診断・プログラミング学習支援ツール。バックエンドを担当し、DB 設計（全6テーブル）、GitHub OAuth と ID ログインの認証フロー（JWT を httpOnly Cookie で管理）、ユーザー・クエストの API を実装しました。</p>
+            <div class="work-tags"><span class="wtag">Python</span><span class="wtag">FastAPI</span><span class="wtag">React</span><span class="wtag">TypeScript</span><span class="wtag">OAuth2</span></div>
+            <div class="work-links">
+              <a class="work-link ripple" href="https://github.com/kc3hack/2026_team29" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+            </div>
           </div>
         </article>
-        <article class="host work-card" data-cat="go net" data-reveal>
-          <div class="host-top"><span class="led"></span>ROUTER<i class="fa-solid fa-network-wired work-icon" aria-hidden="true"></i></div>
-          <h3>Go Software Router</h3>
-          <p>Goで実装したソフトウェアルーター。TCP/IP・ARP・ICMPをスクラッチで実装。低レイヤのネットワーク処理を学ぶために開発。</p>
-          <div class="ports"><span>Go</span><span>Network</span><span>TCP/IP</span><span>ARP</span></div>
-          <div class="work-links">
-            <a class="work-link" href="https://github.com/Reeeid/go-software-router" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+        <article class="work-card" data-cat="go net" data-reveal>
+          <div class="work-thumb t2"><span class="work-icon"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></span></div>
+          <div class="work-info">
+            <h3>Go Software Router</h3>
+            <p>Goで実装したソフトウェアルーター。TCP/IP・ARP・ICMPをスクラッチで実装。低レイヤのネットワーク処理を学ぶために開発。</p>
+            <div class="work-tags"><span class="wtag">Go</span><span class="wtag">Network</span><span class="wtag">TCP/IP</span><span class="wtag">ARP</span></div>
+            <div class="work-links">
+              <a class="work-link ripple" href="https://github.com/Reeeid/go-software-router" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+            </div>
           </div>
         </article>
-        <article class="host work-card" data-cat="web go" data-reveal>
-          <div class="host-top"><span class="led"></span>WEB<i class="fa-solid fa-book work-icon" aria-hidden="true"></i></div>
-          <h3>TODOテトリス</h3>
-          <p>TODOリストとテトリスを融合したWebアプリ。</p>
-          <div class="ports"><span>React</span><span>TypeScript</span><span>Vercel</span><span>Go</span></div>
-          <div class="work-links">
-            <a class="work-link primary" href="https://todotetris.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> デモ</a>
-            <a class="work-link" href="https://github.com/Reeeid/TodoTetris" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+        <article class="work-card" data-cat="web go" data-reveal>
+          <div class="work-thumb t3"><span class="work-icon"><i class="fa-solid fa-book" aria-hidden="true"></i></span></div>
+          <div class="work-info">
+            <h3>TODOテトリス</h3>
+            <p>TODOリストとテトリスを融合したWebアプリ。</p>
+            <div class="work-tags"><span class="wtag">React</span><span class="wtag">TypeScript</span><span class="wtag">Vercel</span><span class="wtag">Go</span></div>
+            <div class="work-links">
+              <a class="work-link primary ripple" href="https://todotetris.vercel.app" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> デモ</a>
+              <a class="work-link ripple" href="https://github.com/Reeeid/TodoTetris" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+            </div>
           </div>
         </article>
-        <article class="host work-card" data-cat="go" data-reveal>
-          <div class="host-top"><span class="led"></span>LAB<i class="fa-brands fa-golang work-icon" aria-hidden="true"></i></div>
-          <h3>Go playGround</h3>
-          <p>Goで遊ぶためのリポジトリ。主にバックエンドでCQRS、ES、GraphQLとかの検証用。（リポ名がよろしくない）</p>
-          <div class="ports"><span>Go</span><span>Backend</span><span>Network</span></div>
-          <div class="work-links">
-            <a class="work-link" href="https://github.com/Reeeid/Go_backend_playgrounds" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+        <article class="work-card" data-cat="go" data-reveal>
+          <div class="work-thumb t1"><span class="work-icon"><i class="fa-brands fa-golang" aria-hidden="true"></i></span></div>
+          <div class="work-info">
+            <h3>Go playGround</h3>
+            <p>Goで遊ぶためのリポジトリ。主にバックエンドでCQRS、ES、GraphQLとかの検証用。（リポ名がよろしくない）</p>
+            <div class="work-tags"><span class="wtag">Go</span><span class="wtag">Backend</span><span class="wtag">Network</span></div>
+            <div class="work-links">
+              <a class="work-link ripple" href="https://github.com/Reeeid/Go_backend_playgrounds" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+            </div>
           </div>
         </article>
-        <article class="host work-card" data-cat="team" data-reveal>
-          <div class="host-top"><span class="led"></span>TEAM<i class="fa-solid fa-mobile-screen-button work-icon" aria-hidden="true"></i></div>
-          <h3>買いマスター</h3>
-          <p>KITBUILD 2026 のチーム開発で作った、より安く買い物するための支援アプリ。店舗・カテゴリ・商品から探して、お得に買い物できるようにします。フロントエンドをFlutterで担当し、買い物画面の実装と二重登録防止などの不具合修正を行いました。</p>
-          <div class="ports"><span>Flutter</span><span>Dart</span><span>Frontend</span><span>Team</span></div>
-          <div class="work-links">
-            <a class="work-link" href="https://github.com/Reeeid/KITBUILD202606_teamB" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+        <article class="work-card" data-cat="team" data-reveal>
+          <div class="work-thumb t3"><span class="work-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span></div>
+          <div class="work-info">
+            <h3>買いマスター</h3>
+            <p>KITBUILD 2026 のチーム開発で作った、より安く買い物するための支援アプリ。店舗・カテゴリ・商品から探して、お得に買い物できるようにします。フロントエンドをFlutterで担当し、買い物画面の実装と二重登録防止などの不具合修正を行いました。</p>
+            <div class="work-tags"><span class="wtag">Flutter</span><span class="wtag">Dart</span><span class="wtag">Frontend</span><span class="wtag">Team</span></div>
+            <div class="work-links">
+              <a class="work-link ripple" href="https://github.com/Reeeid/KITBUILD202606_teamB" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+            </div>
           </div>
         </article>
-        <article class="host work-card" data-cat="net" data-reveal>
-          <div class="host-top"><span class="led"></span>SECURITY<i class="fa-solid fa-flag work-icon" aria-hidden="true"></i></div>
-          <h3>CTF</h3>
-          <p>趣味でCTFに取り組んでいます。解いた問題のメモやスクリプトを蓄積中。</p>
-          <div class="ports"><span>Security</span><span>CTF</span></div>
-          <div class="work-links">
-            <span class="work-link is-private"><i class="fa-solid fa-lock" aria-hidden="true"></i> Private</span>
+        <article class="work-card" data-cat="net" data-reveal>
+          <div class="work-thumb t1"><span class="work-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></span></div>
+          <div class="work-info">
+            <h3>CTF</h3>
+            <p>趣味でCTFに取り組んでいます。解いた問題のメモやスクリプトを蓄積中。</p>
+            <div class="work-tags"><span class="wtag">Security</span><span class="wtag">CTF</span></div>
+            <div class="work-links">
+              <span class="work-link is-private"><i class="fa-solid fa-lock" aria-hidden="true"></i> Private</span>
+            </div>
           </div>
         </article>
-        <article class="host work-card" data-cat="other" data-reveal>
-          <div class="host-top"><span class="led led-warn"></span>BUILDING<i class="fa-solid fa-fish work-icon" aria-hidden="true"></i></div>
-          <h3>マグロラン</h3>
-          <p>ゼミで開発中の Unity ゲーム。オープンキャンパスで 240 人に遊んでもらいました。いまは、どう売り込むかを模索中です。</p>
-          <div class="ports"><span>C#</span><span>Unity</span></div>
-          <div class="work-links">
-            <span class="work-link is-private"><i class="fa-solid fa-lock" aria-hidden="true"></i> Private</span>
+        <article class="work-card" data-cat="other" data-reveal>
+          <div class="work-thumb t2"><span class="work-icon"><i class="fa-solid fa-fish" aria-hidden="true"></i></span></div>
+          <div class="work-info">
+            <h3>マグロラン</h3>
+            <p>ゼミで開発中の Unity ゲーム。オープンキャンパスで 240 人に遊んでもらいました。いまは、どう売り込むかを模索中です。</p>
+            <div class="work-tags"><span class="wtag">C#</span><span class="wtag">Unity</span></div>
+            <div class="work-links">
+              <span class="work-link is-private"><i class="fa-solid fa-lock" aria-hidden="true"></i> Private</span>
+            </div>
           </div>
         </article>
-        <article class="host work-card" data-cat="net tool" data-reveal>
-          <div class="host-top"><span class="led"></span>TOOL<i class="fa-solid fa-power-off work-icon" aria-hidden="true"></i></div>
-          <h3>リモート起動ツール</h3>
-          <p>Pythonで自作した、ネットワーク越しにPCを起動するための個人用ツール。</p>
-          <div class="ports"><span>Python</span><span>Network</span></div>
-          <div class="work-links">
-            <span class="work-link is-private"><i class="fa-solid fa-lock" aria-hidden="true"></i> Private</span>
+        <article class="work-card" data-cat="net tool" data-reveal>
+          <div class="work-thumb t1"><span class="work-icon"><i class="fa-solid fa-power-off" aria-hidden="true"></i></span></div>
+          <div class="work-info">
+            <h3>リモート起動ツール</h3>
+            <p>Pythonで自作した、ネットワーク越しにPCを起動するための個人用ツール。</p>
+            <div class="work-tags"><span class="wtag">Python</span><span class="wtag">Network</span></div>
+            <div class="work-links">
+              <span class="work-link is-private"><i class="fa-solid fa-lock" aria-hidden="true"></i> Private</span>
+            </div>
           </div>
         </article>
-        <article class="host work-card" data-cat="tool" data-reveal>
-          <div class="host-top"><span class="led"></span>TOOL<i class="fa-brands fa-discord work-icon" aria-hidden="true"></i></div>
-          <h3>Discord Bot</h3>
-          <p>Pythonで作成した個人用のDiscord Bot。</p>
-          <div class="ports"><span>Python</span><span>discord.py</span></div>
-          <div class="work-links">
-            <span class="work-link is-private"><i class="fa-solid fa-lock" aria-hidden="true"></i> Private</span>
+        <article class="work-card" data-cat="tool" data-reveal>
+          <div class="work-thumb t2"><span class="work-icon"><i class="fa-brands fa-discord" aria-hidden="true"></i></span></div>
+          <div class="work-info">
+            <h3>Discord Bot</h3>
+            <p>Pythonで作成した個人用のDiscord Bot。</p>
+            <div class="work-tags"><span class="wtag">Python</span><span class="wtag">discord.py</span></div>
+            <div class="work-links">
+              <span class="work-link is-private"><i class="fa-solid fa-lock" aria-hidden="true"></i> Private</span>
+            </div>
           </div>
         </article>
-        <article class="host work-card" data-cat="go tool" data-reveal>
-          <div class="host-top"><span class="led led-off"></span>ARCHIVE<i class="fa-regular fa-face-grin-squint-tears work-icon" aria-hidden="true"></i></div>
-          <h3>HTML to EMOJI</h3>
-          <p>HTMLを絵文字に変換する拡張機能 一番古いコードでコミット忘れで未完成ですが戒めのために残します</p>
-          <div class="ports"><span>Go</span><span>JavaScript</span><span>LLMstudio</span></div>
-          <div class="work-links">
-            <a class="work-link" href="https://github.com/Reeeid/Emoji-html" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+        <article class="work-card" data-cat="go tool" data-reveal>
+          <div class="work-thumb t3"><span class="work-icon"><i class="fa-regular fa-face-grin-squint-tears" aria-hidden="true"></i></span></div>
+          <div class="work-info">
+            <h3>HTML to EMOJI</h3>
+            <p>HTMLを絵文字に変換する拡張機能 一番古いコードでコミット忘れで未完成ですが戒めのために残します</p>
+            <div class="work-tags"><span class="wtag">Go</span><span class="wtag">JavaScript</span><span class="wtag">LLMstudio</span></div>
+            <div class="work-links">
+              <a class="work-link ripple" href="https://github.com/Reeeid/Emoji-html" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+            </div>
           </div>
         </article>
-        <article class="host work-card" data-cat="all" data-reveal>
-          <div class="host-top"><span class="led"></span>OTHERS<i class="fa-brands fa-github work-icon" aria-hidden="true"></i></div>
-          <h3>その他の制作物</h3>
-          <p>学習用リポジトリや練習コードを含め、パブリックなものはGitHubで確認できます。</p>
-          <div class="ports"><span>GitHub</span></div>
-          <div class="work-links">
-            <a class="work-link" href="https://github.com/Reeeid?tab=repositories" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+        <article class="work-card" data-cat="all" data-reveal>
+          <div class="work-thumb t3"><span class="work-icon"><i class="fa-brands fa-github" aria-hidden="true"></i></span></div>
+          <div class="work-info">
+            <h3>その他の制作物</h3>
+            <p>学習用リポジトリや練習コードを含め、パブリックなものはGitHubで確認できます。</p>
+            <div class="work-tags"><span class="wtag">GitHub</span></div>
+            <div class="work-links">
+              <a class="work-link ripple" href="https://github.com/Reeeid?tab=repositories" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+            </div>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="contact">
+  <section class="section section-alt" id="contact">
     <div class="container">
-      <div class="sec-header" data-reveal>
-        <span class="hop-label">HOP 05</span>
+      <div class="contact-wrap" data-reveal>
+        <div class="sec-eyebrow">contact</div>
         <h2 class="sec-heading">連絡先</h2>
-        <span class="sec-rule"></span>
-        <span class="sec-eyebrow">CONTACT</span>
-      </div>
-      <div class="paper contact-paper" data-reveal>
-        <span class="pin pin-a"></span>
-        <div class="paper-in contact-wrap">
-          <div class="doc-head"><span>連絡窓口</span><span class="stamp">OPEN</span><span class="doc-no">SECTION 5</span></div>
-          <p>何かあればXにどうぞ。<br>よろしくね</p>
-          <div class="contact-links">
-            <a class="btn" href="https://x.com/R3ID_0107" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i>X / Twitter</a>
-            <a class="btn btn-line" href="https://github.com/Reeeid" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
-            <a class="btn btn-line" href="https://qiita.com/Reeeid" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i>Qiita</a>
-          </div>
+        <p>何かあればXにどうぞ。<br>よろしくね</p>
+        <div class="contact-links">
+          <a class="btn btn-filled ripple" href="https://x.com/R3ID_0107" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i>X / Twitter</a>
+          <a class="btn btn-outlined ripple" href="https://github.com/Reeeid" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
+          <a class="btn btn-outlined ripple" href="https://qiita.com/Reeeid" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i>Qiita</a>
         </div>
       </div>
     </div>
@@ -523,10 +570,7 @@
   </section>
   </main>
 
-  <footer class="footer">
-    <span>© 2026 port. — built with HTML / CSS / JS</span>
-    <a class="footer-port" href="#ctf"><span class="led led-warn"></span>PORT ・ CTF <b>CLOSED</b></a>
-  </footer>
+  <footer class="footer">© 2026 port. — built with HTML / CSS / JS</footer>
 </div>
 
 <script type="module" src="js/main.js"></script>
