@@ -8,7 +8,7 @@
   <meta name="permissions-policy" content="geolocation=(), microphone=(), camera=()">
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'none';
-    script-src 'self';
+    script-src 'self' 'wasm-unsafe-eval';
     style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';
     font-src https://cdn.jsdelivr.net;
     img-src 'self' https://github.com https://avatars.githubusercontent.com https://cdn.jsdelivr.net;
@@ -84,22 +84,24 @@
         </div>
       </div>
 
-      <div class="hero-stage" id="heroStage" aria-hidden="true">
-        <div class="shape s-a" data-shapes="cookie,clover,circle,squircle" data-depth="0.5">
+      <div class="hero-stage" id="heroStage">
+        <div class="shape s-a" data-shapes="cookie,clover,circle,squircle" data-depth="0.5" aria-hidden="true">
           <span class="shape-body"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
         </div>
-        <div class="shape s-b" data-shapes="pill,diamond,flower,circle" data-depth="0.9">
+        <div class="shape s-b" data-shapes="pill,diamond,flower,circle" data-depth="0.9" aria-hidden="true">
           <span class="shape-body"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
         </div>
-        <div class="shape s-c" data-shapes="squircle,trefoil,burst,pill" data-depth="0.7">
+        <div class="shape s-c" data-shapes="squircle,trefoil,burst,pill" data-depth="0.7" aria-hidden="true">
           <span class="shape-body"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
         </div>
-        <div class="shape s-d" data-shapes="flower,circle,cookie,diamond" data-depth="0.35">
+        <div class="shape s-d" data-shapes="flower,circle,cookie,diamond" data-depth="0.35" aria-hidden="true">
           <span class="shape-body"><i class="devicon-go-plain" aria-hidden="true"></i></span>
         </div>
-        <div class="shape s-e" data-shapes="burst,clover,squircle,trefoil" data-depth="1.2">
+        <div class="shape s-e" data-shapes="burst,clover,squircle,trefoil" data-depth="1.2" aria-hidden="true">
           <span class="shape-body"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
         </div>
+        <p class="rive-caption" id="riveCaption" aria-live="polite"></p>
+        <p class="rive-progress" id="riveProgress" hidden><i></i><i></i><i></i><i></i><i></i><b>0/5</b></p>
       </div>
     </div>
 

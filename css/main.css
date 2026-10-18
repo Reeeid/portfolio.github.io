@@ -498,6 +498,68 @@ button { font: inherit; color: inherit; }
 .stat-primary:hover, .stat-tertiary:hover, .stat-surface:hover { border-radius: 40px; }
 .stat-secondary:hover { border-radius: 56px 20px 56px 20px; }
 
+/* ── Rive playground (replaces the CSS shapes once the runtime is up) ── */
+.rive-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: grab;
+  touch-action: pan-y;
+  transition: opacity 0.6s var(--ease-emph);
+}
+.rive-canvas.is-grabbing { cursor: grabbing; }
+.rive-ready .rive-canvas { opacity: 1; }
+.rive-ready .shape { opacity: 0; visibility: hidden; transition: opacity 0.4s, visibility 0s 0.4s; }
+.rive-caption {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  z-index: 3;
+  width: max-content;
+  max-width: min(92vw, 440px);
+  margin: 0;
+  padding: 10px 16px;
+  border-radius: 16px;
+  background: var(--surface-highest);
+  box-shadow: var(--elev-2);
+  color: var(--on-surface);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.55;
+  text-align: center;
+  opacity: 0;
+  translate: -50% 100%;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.4s var(--ease-spring);
+}
+.rive-caption.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.rive-caption strong { color: var(--tertiary); }
+.rive-caption a { color: var(--primary); font-weight: 800; }
+.rive-progress {
+  position: absolute;
+  top: 0;
+  right: 4px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: var(--surface-high);
+  color: var(--on-surface-variant);
+  font-size: 11px;
+  font-weight: 800;
+}
+.rive-progress[hidden] { display: none; }
+.rive-progress i { width: 8px; height: 8px; border-radius: 50%; background: var(--outline-variant); transition: background-color 0.3s, scale 0.4s var(--ease-spring); }
+.rive-progress i.on { background: var(--primary); scale: 1.2; }
+.rive-progress b { margin-left: 3px; font-variant-numeric: tabular-nums; }
+
 /* ── Section ── */
 .section {
   padding: clamp(72px, 9vw, 128px) 0;
